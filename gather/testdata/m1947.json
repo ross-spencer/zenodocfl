@@ -1,0 +1,250 @@
+{
+  "__typename": "MediathekFullEntry",
+  "abstract": [
+    {
+      "lang": "en",
+      "value": "",
+      "translated": false
+    }
+  ],
+  "base": {
+    "signature": "motetcycle-1947",
+    "collectionTitle": "Motet Cycles",
+    "source": "motetcycles",
+    "title": [
+      {
+        "lang": "en",
+        "value": "M286 O domine Iesu Christe adoro te in cruce vulneratum",
+        "translated": false
+      }
+    ],
+    "person": [
+      {
+        "name": "Finck, Heinrich",
+        "role": "Composer",
+        "identifier": []
+      }
+    ],
+    "series": "Motet Cycle #1993: C61b O domine Iesu Christe (3 motets)",
+    "place": "Basel, Switzerland",
+    "date": "",
+    "category": [
+      "zotero2",
+      "zotero2!!Werke",
+      "zotero2!!Werke!!Hochschule für Musik",
+      "zotero2!!Werke!!Hochschule für Musik!!Motet Cycles"
+    ],
+    "tags": [
+      "renaissance",
+      "music",
+      "motet"
+    ],
+    "url": "https://www.motetcycles.org/motet/1947",
+    "publisher": "Mediathek HGK FHNW",
+    "rights": "Public Domain",
+    "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "type": "motet",
+    "mediaCount": [
+      {
+        "type": "mei",
+        "count": 1
+      }
+    ],
+    "mediaVisible": true,
+    "mediaProtected": false,
+    "poster": {
+      "name": "PNG for Motet M286",
+      "mimetype": "image/png",
+      "type": "image",
+      "uri": "mediaserver:hsm/motet_cycles_data_motet_cycles_data_MEI_files_motets_M286ODICAdoroTeInCruceVulneratum.png",
+      "orientation": 0,
+      "width": 1744,
+      "height": 784
+    },
+    "acl": [
+      {
+        "groups": [
+          "global/guest"
+        ],
+        "name": "meta"
+      },
+      {
+        "groups": [
+          "global/guest"
+        ],
+        "name": "content"
+      }
+    ]
+  },
+  "extra": [
+    {
+      "key": "handle",
+      "value": "20.500.11806/med/3jzx-tf3s-g1"
+    },
+    {
+      "key": "ark",
+      "value": "ark:/15737/p658-sjm6-66z4"
+    }
+  ],
+  "id": "motetcycle-1947",
+  "media": [
+    {
+      "type": "mei",
+      "items": [
+        {
+          "name": "MEI for Motet M286",
+          "mimetype": "application/xml",
+          "type": "default",
+          "uri": "mediaserver:hsm/motet_cycles_data_motet_cycles_data_MEI_files_motets_M286ODICAdoroTeInCruceVulneratum.xml",
+          "orientation": 0,
+          "width": 0,
+          "height": 0
+        }
+      ]
+    }
+  ],
+  "notes": [
+    {
+      "title": "Clefs",
+      "text": "c1c3c4f4"
+    },
+    {
+      "title": "Standardized Text Incipit",
+      "text": "O domine Iesu Christe adoro te in cruce vulneratum"
+    },
+    {
+      "title": "Music Sources",
+      "text": "      Folio: No. 23.2, Source: \u003Cp\u003E\u003Cem\u003EConcentus octo, sex, quinque & quatuor vocum, omnium iucundissimi, nuspiam antea sic aediti\u003C/em\u003E. Augsburg : Ulhard, 1545.\u003C/p\u003E\n      Music Source: \u003Cnil\u003E\n      Folio: S: 93v-94r; T: 80r-v; 87v-88v, Source: Dresden, Sächsische Landesbibliothek, MS Grimma 57\n      Music Source: \u003Cnil\u003E\n"
+    }
+  ],
+  "referencesFull": [
+    {
+      "signature": "motetcycle-1944",
+      "collectionTitle": "Motet Cycles",
+      "source": "motetcycles",
+      "title": [
+        {
+          "lang": "en",
+          "value": "C61a O domine Iesu Christe (7 motets)",
+          "translated": false
+        }
+      ],
+      "person": [
+        {
+          "name": "Finck, Heinrich",
+          "role": "composer",
+          "identifier": []
+        }
+      ],
+      "series": "Motet Cycles",
+      "place": "Basel, Switzerland",
+      "date": "",
+      "category": [
+        "zotero2",
+        "zotero2!!Werke",
+        "zotero2!!Werke!!Hochschule für Musik",
+        "zotero2!!Werke!!Hochschule für Musik!!Motet Cycles"
+      ],
+      "tags": [
+        "cycle",
+        "renaissance",
+        "music",
+        "motetcycle"
+      ],
+      "url": "https://www.motetcycles.ch/cycle/1944",
+      "publisher": "Mediathek HGK FHNW",
+      "rights": "Public Domain",
+      "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "type": "",
+      "mediaVisible": true,
+      "mediaProtected": false,
+      "poster": {
+        "name": "",
+        "mimetype": "image/png",
+        "type": "image",
+        "uri": "mediaserver:hsm/motet_cycles_data_motet_cycles_data_motet_cycles_data.png",
+        "orientation": 0,
+        "width": 1510,
+        "height": 260
+      },
+      "acl": [
+        {
+          "groups": [
+            "global/guest"
+          ],
+          "name": "content"
+        },
+        {
+          "groups": [
+            "global/guest"
+          ],
+          "name": "meta"
+        }
+      ]
+    },
+    {
+      "signature": "motetcycle-1993",
+      "collectionTitle": "Motet Cycles",
+      "source": "motetcycles",
+      "title": [
+        {
+          "lang": "en",
+          "value": "C61b O domine Iesu Christe (3 motets)",
+          "translated": false
+        }
+      ],
+      "person": [
+        {
+          "name": "Finck, Heinrich",
+          "role": "composer",
+          "identifier": []
+        }
+      ],
+      "series": "Motet Cycles",
+      "place": "Basel, Switzerland",
+      "date": "",
+      "category": [
+        "zotero2",
+        "zotero2!!Werke",
+        "zotero2!!Werke!!Hochschule für Musik",
+        "zotero2!!Werke!!Hochschule für Musik!!Motet Cycles"
+      ],
+      "tags": [
+        "cycle",
+        "renaissance",
+        "music",
+        "motetcycle"
+      ],
+      "url": "https://www.motetcycles.ch/cycle/1993",
+      "publisher": "Mediathek HGK FHNW",
+      "rights": "Public Domain",
+      "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "type": "",
+      "mediaVisible": true,
+      "mediaProtected": false,
+      "poster": {
+        "name": "",
+        "mimetype": "image/png",
+        "type": "image",
+        "uri": "mediaserver:hsm/motet_cycles_data_motet_cycles_data_motet_cycles_data.png",
+        "orientation": 0,
+        "width": 1510,
+        "height": 260
+      },
+      "acl": [
+        {
+          "groups": [
+            "global/guest"
+          ],
+          "name": "content"
+        },
+        {
+          "groups": [
+            "global/guest"
+          ],
+          "name": "meta"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,450 @@
+{
+  "__typename": "MediathekFullEntry",
+  "abstract": [
+    {
+      "lang": "en",
+      "value": "",
+      "translated": false
+    }
+  ],
+  "base": {
+    "signature": "motetcycle-0399",
+    "collectionTitle": "Motet Cycles",
+    "source": "motetcycles",
+    "title": [
+      {
+        "lang": "en",
+        "value": "C02 Beata progenies",
+        "translated": false
+      }
+    ],
+    "person": [
+      {
+        "name": "Gaffurius, Franchinus",
+        "role": "composer",
+        "identifier": []
+      }
+    ],
+    "series": "Motet Cycles",
+    "place": "Basel, Switzerland",
+    "date": "",
+    "category": [
+      "zotero2",
+      "zotero2!!Werke",
+      "zotero2!!Werke!!Hochschule für Musik",
+      "zotero2!!Werke!!Hochschule für Musik!!Motet Cycles"
+    ],
+    "tags": [
+      "cycle",
+      "renaissance",
+      "music",
+      "motetcycle"
+    ],
+    "url": "https://www.motetcycles.ch/cycle/399",
+    "publisher": "Mediathek HGK FHNW",
+    "rights": "Public Domain",
+    "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "type": "",
+    "mediaVisible": true,
+    "mediaProtected": false,
+    "poster": {
+      "name": "",
+      "mimetype": "image/png",
+      "type": "image",
+      "uri": "mediaserver:hsm/motet_cycles_data_motet_cycles_data_motet_cycles_data.png",
+      "orientation": 0,
+      "width": 1510,
+      "height": 260
+    },
+    "acl": [
+      {
+        "groups": [
+          "global/guest"
+        ],
+        "name": "content"
+      },
+      {
+        "groups": [
+          "global/guest"
+        ],
+        "name": "meta"
+      }
+    ]
+  },
+  "extra": [
+    {
+      "key": "Clefs",
+      "value": "c1c4f4\nc1c4f4\nc1c4f4\nc1c4f4\nc1c3c4\nc1c3c4"
+    },
+    {
+      "key": "Final",
+      "value": "G/G/F"
+    },
+    {
+      "key": "ark",
+      "value": "ark:/15737/p655-cz83-8mxn"
+    },
+    {
+      "key": "handle",
+      "value": "20.500.11806/med/3h1x-65hq-1w"
+    },
+    {
+      "key": "NumberOfVoices",
+      "value": "3"
+    },
+    {
+      "key": "Signature",
+      "value": "b"
+    }
+  ],
+  "id": "motetcycle-0399",
+  "notes": [
+    {
+      "title": "Attribution",
+      "text": "\"F. Gaffor(us)\", \"F. Gaff(orus)\", \"F. G.\" (I-Mfd 1)"
+    },
+    {
+      "title": "Description",
+      "text": "\u003Cp\u003EThe cycle consists of three motets, whose texts are variously associated with Marian feasts (notably the Nativity of the BVM).\u003C/p\u003E"
+    },
+    {
+      "title": "Modern Editions",
+      "text": "AMMM 5, 20-25; MM 1, 1-7"
+    },
+    {
+      "title": "Notes",
+      "text": "\u003Cp\u003EWARD 1986 listed the first two&nbsp;motets of this cycle (cited only by their foliation, ff. 64v-66r) among the&nbsp;&ldquo;possible&nbsp;\u003Cem\u003Emotetti missales&nbsp;\u003C/em\u003Ecycles in the Gafurius codices&rdquo; (p. 523, footnote 56). GASSER 2001 was the first to propose a larger, three-motet cycle. As the same author admits, however, the third motet has a different tonal type (p. 347). While this &ldquo;may seem to throw out the possibility of a unified, tri-partite cycle&rdquo;, Gasser observes that&nbsp;all three motets &ldquo;share the same hexachordal identity of&nbsp;\u003Cem\u003Ecantus mollis\u003C/em\u003E&rdquo; and feature &ldquo;similar musical techniques and a consistent approach to composition, including some potential thematic connections&rdquo; (ibid.).\u003C/p\u003E"
+    },
+    {
+      "title": "Reference Source",
+      "text": "I-Mfd 1, ff. 64v-67r"
+    },
+    {
+      "title": "Other Source",
+      "text": "-"
+    },
+    {
+      "title": "Configuration",
+      "text": "GASSER 2001, 343-354 (see Further notes)"
+    },
+    {
+      "title": "Cycle Rubric",
+      "text": "-"
+    },
+    {
+      "title": "Modern Editions",
+      "text": "AMMM 5, 20-25; MM 1, 1-7"
+    },
+    {
+      "title": "Bibliographies",
+      "text": "   #1741: Motetti Missales Repertory Reconsidered\u003Cbr\u003E   #1719: Marian Motet Cycles of the Gaffurius Codices A Musical and Litur"
+    }
+  ],
+  "referencesFull": [
+    {
+      "signature": "motetcycle-0955",
+      "collectionTitle": "Motet Cycles",
+      "source": "motetcycles",
+      "title": [
+        {
+          "lang": "en",
+          "value": "M001 Beata progenies",
+          "translated": false
+        }
+      ],
+      "person": [
+        {
+          "name": "Gaffurius, Franchinus",
+          "role": "Composer",
+          "identifier": []
+        }
+      ],
+      "series": "Motet Cycle #399: C02 Beata progenies",
+      "place": "Basel, Switzerland",
+      "date": "",
+      "category": [
+        "zotero2",
+        "zotero2!!Werke",
+        "zotero2!!Werke!!Hochschule für Musik",
+        "zotero2!!Werke!!Hochschule für Musik!!Motet Cycles"
+      ],
+      "tags": [
+        "renaissance",
+        "music",
+        "motet"
+      ],
+      "url": "https://www.motetcycles.org/motet/955",
+      "publisher": "Mediathek HGK FHNW",
+      "rights": "Public Domain",
+      "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "type": "motet",
+      "mediaCount": [
+        {
+          "type": "mei",
+          "count": 1
+        }
+      ],
+      "mediaVisible": true,
+      "mediaProtected": false,
+      "poster": {
+        "name": "PNG for Motet M001",
+        "mimetype": "image/png",
+        "type": "image",
+        "uri": "mediaserver:hsm/motet_cycles_data_motet_cycles_data_MEI_files_motets_M001BeataProgenies.png",
+        "orientation": 0,
+        "width": 1634,
+        "height": 661
+      },
+      "acl": [
+        {
+          "groups": [
+            "global/guest"
+          ],
+          "name": "meta"
+        },
+        {
+          "groups": [
+            "global/guest"
+          ],
+          "name": "content"
+        }
+      ]
+    },
+    {
+      "signature": "motetcycle-0956",
+      "collectionTitle": "Motet Cycles",
+      "source": "motetcycles",
+      "title": [
+        {
+          "lang": "en",
+          "value": "M002 Gloriosae virginis Mariae",
+          "translated": false
+        }
+      ],
+      "person": [
+        {
+          "name": "Gaffurius, Franchinus",
+          "role": "Composer",
+          "identifier": []
+        }
+      ],
+      "series": "Motet Cycle #399: C02 Beata progenies",
+      "place": "Basel, Switzerland",
+      "date": "",
+      "category": [
+        "zotero2",
+        "zotero2!!Werke",
+        "zotero2!!Werke!!Hochschule für Musik",
+        "zotero2!!Werke!!Hochschule für Musik!!Motet Cycles"
+      ],
+      "tags": [
+        "renaissance",
+        "music",
+        "motet"
+      ],
+      "url": "https://www.motetcycles.org/motet/956",
+      "publisher": "Mediathek HGK FHNW",
+      "rights": "Public Domain",
+      "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "type": "motet",
+      "mediaCount": [
+        {
+          "type": "mei",
+          "count": 1
+        }
+      ],
+      "mediaVisible": true,
+      "mediaProtected": false,
+      "poster": {
+        "name": "PNG for Motet M002",
+        "mimetype": "image/png",
+        "type": "image",
+        "uri": "mediaserver:hsm/motet_cycles_data_motet_cycles_data_MEI_files_motets_M002GloriosaeVirginis.png",
+        "orientation": 0,
+        "width": 2056,
+        "height": 1228
+      },
+      "acl": [
+        {
+          "groups": [
+            "global/guest"
+          ],
+          "name": "content"
+        },
+        {
+          "groups": [
+            "global/guest"
+          ],
+          "name": "meta"
+        }
+      ]
+    },
+    {
+      "signature": "motetcycle-0957",
+      "collectionTitle": "Motet Cycles",
+      "source": "motetcycles",
+      "title": [
+        {
+          "lang": "en",
+          "value": "M003 Sub tuam protectionem",
+          "translated": false
+        }
+      ],
+      "person": [
+        {
+          "name": "Gaffurius, Franchinus",
+          "role": "Composer",
+          "identifier": []
+        }
+      ],
+      "series": "Motet Cycle #399: C02 Beata progenies",
+      "place": "Basel, Switzerland",
+      "date": "",
+      "category": [
+        "zotero2",
+        "zotero2!!Werke",
+        "zotero2!!Werke!!Hochschule für Musik",
+        "zotero2!!Werke!!Hochschule für Musik!!Motet Cycles"
+      ],
+      "tags": [
+        "renaissance",
+        "music",
+        "motet"
+      ],
+      "url": "https://www.motetcycles.org/motet/957",
+      "publisher": "Mediathek HGK FHNW",
+      "rights": "Public Domain",
+      "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "type": "motet",
+      "mediaCount": [
+        {
+          "type": "mei",
+          "count": 1
+        }
+      ],
+      "mediaVisible": true,
+      "mediaProtected": false,
+      "poster": {
+        "name": "PNG for Motet M003",
+        "mimetype": "image/png",
+        "type": "image",
+        "uri": "mediaserver:hsm/motet_cycles_data_motet_cycles_data_MEI_files_motets_M003SubTuamProtectionem.png",
+        "orientation": 0,
+        "width": 2056,
+        "height": 666
+      },
+      "acl": [
+        {
+          "groups": [
+            "global/guest"
+          ],
+          "name": "content"
+        },
+        {
+          "groups": [
+            "global/guest"
+          ],
+          "name": "meta"
+        }
+      ]
+    },
+    {
+      "signature": "motetcycles-research",
+      "collectionTitle": "Motet Cycles",
+      "source": "motetcycles",
+      "title": [
+        {
+          "lang": "en",
+          "value": "Motet Cycles",
+          "translated": false
+        }
+      ],
+      "person": [
+        {
+          "name": "Pavanello, Agnese",
+          "role": "author",
+          "identifier": []
+        },
+        {
+          "name": "Cassia, Cristina",
+          "role": "author",
+          "identifier": []
+        },
+        {
+          "name": "Filippi, Daniele V.",
+          "role": "author",
+          "identifier": []
+        },
+        {
+          "name": "Marti, Hanna",
+          "role": "author",
+          "identifier": []
+        },
+        {
+          "name": "Verstraete, Marie",
+          "role": "author",
+          "identifier": []
+        },
+        {
+          "name": "Ferro, Eva",
+          "role": "author",
+          "identifier": []
+        },
+        {
+          "name": "Schola Cantorum Basiliensis",
+          "role": "contributor",
+          "identifier": []
+        },
+        {
+          "name": "Koláček, Jan",
+          "role": "contributor",
+          "identifier": []
+        }
+      ],
+      "series": "Motet Cycles",
+      "place": "Basel,Switzerland",
+      "date": "2018",
+      "category": [
+        "zotero2",
+        "zotero2!!Werke",
+        "zotero2!!Werke!!Hochschule für Musik",
+        "zotero2!!Werke!!Hochschule für Musik!!Motet Cycles"
+      ],
+      "tags": [
+        "renaissance",
+        "music",
+        "motet"
+      ],
+      "url": "",
+      "publisher": "Mediathek HGK FHNW",
+      "rights": "",
+      "license": "",
+      "type": "",
+      "mediaVisible": true,
+      "mediaProtected": false,
+      "poster": {
+        "name": "",
+        "mimetype": "image/png",
+        "type": "image",
+        "uri": "mediaserver:hsm/motet_cycles_data_motet_cycles_data_motet_cycles_data.png",
+        "orientation": 0,
+        "width": 1510,
+        "height": 260
+      },
+      "acl": [
+        {
+          "groups": [
+            "global/guest"
+          ],
+          "name": "content"
+        },
+        {
+          "groups": [
+            "global/guest"
+          ],
+          "name": "meta"
+        }
+      ]
+    }
+  ]
+}

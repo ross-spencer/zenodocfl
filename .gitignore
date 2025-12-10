@@ -30,3 +30,16 @@ go.work.sum
 # Editor/IDE
 # .idea/
 # .vscode/
+
+# Additional.
+urls.txt
+NOTES
+lister/lister
+gather/gather
+wget
+data/
+records.jsonl
+data.json
+crater/crater
+ro-crate-metadata.json
+ro-crate-preview.html

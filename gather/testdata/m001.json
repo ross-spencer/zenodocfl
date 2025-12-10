@@ -1,0 +1,186 @@
+{
+  "__typename": "MediathekFullEntry",
+  "abstract": [
+    {
+      "lang": "en",
+      "value": "",
+      "translated": false
+    }
+  ],
+  "base": {
+    "signature": "motetcycle-0955",
+    "collectionTitle": "Motet Cycles",
+    "source": "motetcycles",
+    "title": [
+      {
+        "lang": "en",
+        "value": "M001 Beata progenies",
+        "translated": false
+      }
+    ],
+    "person": [
+      {
+        "name": "Gaffurius, Franchinus",
+        "role": "Composer",
+        "identifier": []
+      }
+    ],
+    "series": "Motet Cycle #399: C02 Beata progenies",
+    "place": "Basel, Switzerland",
+    "date": "",
+    "category": [
+      "zotero2",
+      "zotero2!!Werke",
+      "zotero2!!Werke!!Hochschule für Musik",
+      "zotero2!!Werke!!Hochschule für Musik!!Motet Cycles"
+    ],
+    "tags": [
+      "renaissance",
+      "music",
+      "motet"
+    ],
+    "url": "https://www.motetcycles.org/motet/955",
+    "publisher": "Mediathek HGK FHNW",
+    "rights": "Public Domain",
+    "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "type": "motet",
+    "mediaCount": [
+      {
+        "type": "mei",
+        "count": 1
+      }
+    ],
+    "mediaVisible": true,
+    "mediaProtected": false,
+    "poster": {
+      "name": "PNG for Motet M001",
+      "mimetype": "image/png",
+      "type": "image",
+      "uri": "mediaserver:hsm/motet_cycles_data_motet_cycles_data_MEI_files_motets_M001BeataProgenies.png",
+      "orientation": 0,
+      "width": 1634,
+      "height": 661
+    },
+    "acl": [
+      {
+        "groups": [
+          "global/guest"
+        ],
+        "name": "content"
+      },
+      {
+        "groups": [
+          "global/guest"
+        ],
+        "name": "meta"
+      }
+    ]
+  },
+  "extra": [
+    {
+      "key": "ark",
+      "value": "ark:/15737/p657-67kd-93sh"
+    },
+    {
+      "key": "handle",
+      "value": "20.500.11806/med/3hjc-05sv-4w"
+    }
+  ],
+  "id": "motetcycle-0955",
+  "media": [
+    {
+      "type": "mei",
+      "items": [
+        {
+          "name": "MEI for Motet M001",
+          "mimetype": "application/xml",
+          "type": "default",
+          "uri": "mediaserver:hsm/motet_cycles_data_motet_cycles_data_MEI_files_motets_M001BeataProgenies.xml",
+          "orientation": 0,
+          "width": 0,
+          "height": 0
+        }
+      ]
+    }
+  ],
+  "notes": [
+    {
+      "title": "Clefs",
+      "text": "c1c4f4"
+    },
+    {
+      "title": "Standardized Text Incipit",
+      "text": "Beata progenies"
+    },
+    {
+      "title": "Music Sources",
+      "text": "      Folio: 064v-065r, Source: Milano, Archivio della Veneranda Fabbrica del Duomo, Sezione Musicale, Librone 1 (olim MS 2269)\n      Music Source: \u003Cnil\u003E\n"
+    }
+  ],
+  "referencesFull": [
+    {
+      "signature": "motetcycle-0399",
+      "collectionTitle": "Motet Cycles",
+      "source": "motetcycles",
+      "title": [
+        {
+          "lang": "en",
+          "value": "C02 Beata progenies",
+          "translated": false
+        }
+      ],
+      "person": [
+        {
+          "name": "Gaffurius, Franchinus",
+          "role": "composer",
+          "identifier": []
+        }
+      ],
+      "series": "Motet Cycles",
+      "place": "Basel, Switzerland",
+      "date": "",
+      "category": [
+        "zotero2",
+        "zotero2!!Werke",
+        "zotero2!!Werke!!Hochschule für Musik",
+        "zotero2!!Werke!!Hochschule für Musik!!Motet Cycles"
+      ],
+      "tags": [
+        "cycle",
+        "renaissance",
+        "music",
+        "motetcycle"
+      ],
+      "url": "https://www.motetcycles.ch/cycle/399",
+      "publisher": "Mediathek HGK FHNW",
+      "rights": "Public Domain",
+      "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "type": "",
+      "mediaVisible": true,
+      "mediaProtected": false,
+      "poster": {
+        "name": "",
+        "mimetype": "image/png",
+        "type": "image",
+        "uri": "mediaserver:hsm/motet_cycles_data_motet_cycles_data_motet_cycles_data.png",
+        "orientation": 0,
+        "width": 1510,
+        "height": 260
+      },
+      "acl": [
+        {
+          "groups": [
+            "global/guest"
+          ],
+          "name": "content"
+        },
+        {
+          "groups": [
+            "global/guest"
+          ],
+          "name": "meta"
+        }
+      ]
+    }
+  ]
+}

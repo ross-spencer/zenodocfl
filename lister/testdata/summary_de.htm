@@ -1,0 +1,1270 @@
+
+<!doctype html>
+<html lang="de">
+
+
+    <script>
+
+
+
+    (() => {
+        'use strict'
+
+        const setTheme = theme => {
+            if (theme === 'auto') {
+                theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+            }
+            document.documentElement.setAttribute('data-bs-theme', theme)
+        }
+
+            setTheme("dark")
+    })();
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Jürgen Enge <juergen@info-age.net>">
+    <title>Sammlungen Performance Kunst Schweiz</title>
+
+
+    <link href="../static/bootstrap/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link href="../static/bootstrap-icons/font/bootstrap-icons.min.css" rel="stylesheet" crossorigin="anonymous">
+
+    <link href="../static/css/ibm-plex-sans.css" rel="stylesheet">
+    <link href="../static/css/ibm-plex-serif.css" rel="stylesheet">
+
+    <link href="../static/css/ink.css" rel="stylesheet">
+
+
+
+<body class="w-100 bg">
+
+
+<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+    <symbol id="check2" viewBox="0 0 16 16">
+        <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+    </symbol>
+    <symbol id="circle-half" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+    </symbol>
+    <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+        <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+        <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+    </symbol>
+    <symbol id="sun-fill" viewBox="0 0 16 16">
+        <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+    </symbol>
+</svg>
+
+
+<nav class="maincolor navbar pt-0 pb-0">
+    <div class="container-fluid">
+        <a class="navbar-brand me-auto" href="https://ink.sammlung.cc/de">
+            <span style="color: red;">IN</span>tegrierter <span style="color: red;">K</span>atalog
+        </a>
+        <ul class="pagination">
+            <li class="page-item"><a style="padding: 3px 6px 3px 6px; height: 34px;" class="noborder page-link" href="../grid/de?search=motetcycle&amp;vocabulary=motetcycle%2C"><i class="bi bi bi-grid-3x3-gap-fill"></i></a></li>
+            <li class="page-item"><a style="padding: 3px 6px 3px 6px; height: 34px;" class="noborder page-link active" href="../table/de?search=motetcycle&amp;vocabulary=motetcycle%2C"><i class="bi bi bi-list-columns-reverse"></i></a></li>
+
+            <li class="page-item"><a style="padding: 3px 6px 3px 6px; height: 34px;" class="noborder page-link" href="../zoom/de?search=motetcycle&amp;vocabulary=motetcycle%2C"><i class="bi bi bi-grid-3x3"></i></a></li>
+
+        </ul>&nbsp;<ul class="pagination">
+
+            <li class="page-item"><a style="padding: 3px 6px 3px 6px; height: 34px;" class="noborder page-link active" href="de?search=motetcycle&amp;vocabulary=motetcycle%2C">DE</a></li>
+            <li class="page-item"><a style="padding: 3px 6px 3px 6px; height: 34px;" class="noborder page-link" href="en?search=motetcycle&amp;vocabulary=motetcycle%2C">EN</a></li>
+            <li class="page-item"><a style="padding: 3px 6px 3px 6px; height: 34px;" class="noborder page-link" href="it?search=motetcycle&amp;vocabulary=motetcycle%2C">IT</a></li>
+            <li class="page-item"><a style="padding: 3px 6px 3px 6px; height: 34px;" class="noborder page-link" href="fr?search=motetcycle&amp;vocabulary=motetcycle%2C">FR</a></li>
+        </ul>
+        <ul class="pagination">
+                <li>
+                <a style="padding: 3px 6px 3px 6px; height: 34px;" class="noborder page-link" href="https://intern.hgk.fhnw.ch/ango/oidc/auth/revcat?callback=https%3a%2f%2fink.sammlung.cc%2ftable%2fde%3ftoken%3d_JWT_"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0z"/>
+                        <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
+                    </svg></a>
+                </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container-fluid p-0 d-flex h-100 maincolor" style="">
+    <div class="flex-fill">
+        <div class="p-4">
+            <div class="row">
+                <div class="col">
+                    <nav class="navbar navbar-expand-lg">
+                        <div class="container-fluid">
+                            <div class="d-flex w-100" role="search">
+                                <input
+                                        onkeyup="if (event.keyCode === 13) search('https:\/\/ink.sammlung.cc\/table\/de') "
+                                        id="search"
+                                        class="form-control me-2"
+                                        type="search"
+                                        placeholder="Suchen"
+                                        aria-label="Suchen"
+                                        value="motetcycle"
+                                />
+                                <button onclick="search('https:\/\/ink.sammlung.cc\/table\/de')" class="btn noborder" type="submit"><i class="bi bi-search"></i></button>
+                                <button onclick="search('https:\/\/ink.sammlung.cc\/table\/de', '', false, true)" class="btn noborder" type="submit"><i class="bi bi-stars"></i></button>
+                                <div class="ms-2 d-lg-none d-flex">
+                                    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#facetBar" aria-controls="facetBar" aria-expanded="false" aria-label="Toggle navigation">
+                                        <span class="navbar-toggler-icon"></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                    <div class="album py-5">
+                        <nav class="navbar">
+                            <a href="?search=motetcycle&amp;vocabulary=motetcycle%2C&cursor=" class="disabled btn btn-secondary">
+                                <i class="bi bi-arrow-left"></i>
+                            </a>
+                            <span>
+                                Gefundene Objekte: 59</span>
+                            <a href="?search=motetcycle&amp;vocabulary=motetcycle%2C&cursor=" class="disabled btn btn-secondary">
+                                <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </nav>
+                        <div class="container-fluid">
+                            <div class="row g-12">
+                                    <table class="table table-striped-columns table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col" style="min-width: 100px;">&nbsp</th>
+                                                <th scope="col" style="white-space: nowrap;">
+                                                    Signatur
+                                                </th>
+                                                <th scope="col" style="white-space: nowrap;">
+                                                    Titel
+                                                </th>
+                                                <th scope="col" style="white-space: nowrap;">
+                                                    Jahr
+                                                </th>
+                                                <th scope="col">
+                                                    KünstlerIn
+                                                </th>
+                                                <th scope="col">
+                                                    Event
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr onclick="window.location='https:\/\/ink.sammlung.cc/detail/motetcycle-0399/de?source=table\u0026cursor=eyJmcm9tIjowLCJzaXplIjozMDB9\u0026search=motetcycle\u0026vocabulary=motetcycle%2C';">
+                                                    <td>
+                                                                <img src="https://ba14ns21403-sec1.fhnw.ch/mediasrv/hsm/motet_cycles_data_motet_cycles_data_motet_cycles_data.png/resize/size100x100/formatPNG/autorotate" class="img-fluid rounded" alt="">
+                                                    </td>
+                                                    <td>motetcycle-0399</td>
+                                                    <td>C02 Beata progenies</td>
+                                                    <td></td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                </tr>
+                                                <tr onclick="window.location='https:\/\/ink.sammlung.cc/detail/motetcycle-0400/de?source=table\u0026cursor=eyJmcm9tIjowLCJzaXplIjozMDB9\u0026search=motetcycle\u0026vocabulary=motetcycle%2C';">
+                                                    <td>
+                                                                <img src="https://ba14ns21403-sec1.fhnw.ch/mediasrv/hsm/motet_cycles_data_motet_cycles_data_motet_cycles_data.png/resize/size100x100/formatPNG/autorotate" class="img-fluid rounded" alt="">
+                                                    </td>
+                                                    <td>motetcycle-0400</td>
+                                                    <td>C03 Hortus conclusus</td>
+                                                    <td></td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                </tr>
+                                                <tr onclick="window.location='https:\/\/ink.sammlung.cc/detail/motetcycle-0401/de?source=table\u0026cursor=eyJmcm9tIjowLCJzaXplIjozMDB9\u0026search=motetcycle\u0026vocabulary=motetcycle%2C';">
+                                                    <td>
+                                                                <img src="https://ba14ns21403-sec1.fhnw.ch/mediasrv/hsm/motet_cycles_data_motet_cycles_data_motet_cycles_data.png/resize/size100x100/formatPNG/autorotate" class="img-fluid rounded" alt="">
+                                                    </td>
+                                                    <td>motetcycle-0401</td>
+                                                    <td>C04 O sacrum convivium (I-Mfd 1)</td>
+                                                    <td></td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                </tr>
+                                                <tr onclick="window.location='https:\/\/ink.sammlung.cc/detail/motetcycle-0403/de?source=table\u0026cursor=eyJmcm9tIjowLCJzaXplIjozMDB9\u0026search=motetcycle\u0026vocabulary=motetcycle%2C';">
+                                                    <td>
+                                                                <img src="https://ba14ns21403-sec1.fhnw.ch/mediasrv/hsm/motet_cycles_data_motet_cycles_data_motet_cycles_data.png/resize/size100x100/formatPNG/autorotate" class="img-fluid rounded" alt="">
+                                                    </td>
+                                                    <td>motetcycle-0403</td>
+                                                    <td>C06 Salve mater salvatoris</td>
+                                                    <td></td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                </tr>
+                                                <tr onclick="window.location='https:\/\/ink.sammlung.cc/detail/motetcycle-0404/de?source=table\u0026cursor=eyJmcm9tIjowLCJzaXplIjozMDB9\u0026search=motetcycle\u0026vocabulary=motetcycle%2C';">
+                                                    <td>
+                                                                <img src="https://ba14ns21403-sec1.fhnw.ch/mediasrv/hsm/motet_cycles_data_motet_cycles_data_motet_cycles_data.png/resize/size100x100/formatPNG/autorotate" class="img-fluid rounded" alt="">
+                                                    </td>
+                                                    <td>motetcycle-0404</td>
+                                                    <td>C07 Castra caeli dum transcendo</td>
+                                                    <td></td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                </tr>
+                                                <tr onclick="window.location='https:\/\/ink.sammlung.cc/detail/motetcycle-0406/de?source=table\u0026cursor=eyJmcm9tIjowLCJzaXplIjozMDB9\u0026search=motetcycle\u0026vocabulary=motetcycle%2C';">
+                                                    <td>
+                                                                <img src="https://ba14ns21403-sec1.fhnw.ch/mediasrv/hsm/motet_cycles_data_motet_cycles_data_motet_cycles_data.png/resize/size100x100/formatPNG/autorotate" class="img-fluid rounded" alt="">
+                                                    </td>
+                                                    <td>motetcycle-0406</td>
+                                                    <td>C09 Ave cella novae legis</td>
+                                                    <td></td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                </tr>
+                                                <tr onclick="window.location='https:\/\/ink.sammlung.cc/detail/motetcycle-0405/de?source=table\u0026cursor=eyJmcm9tIjowLCJzaXplIjozMDB9\u0026search=motetcycle\u0026vocabulary=motetcycle%2C';">
+                                                    <td>
+                                                                <img src="https://ba14ns21403-sec1.fhnw.ch/mediasrv/hsm/motet_cycles_data_motet_cycles_data_motet_cycles_data.png/resize/size100x100/formatPNG/autorotate" class="img-fluid rounded" alt="">
+                                                    </td>
+                                                    <td>motetcycle-0405</td>
+                                                    <td>C08 Vox iucunda cum favore</td>
+                                                    <td></td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                </tr>
+                                                <tr onclick="window.location='https:\/\/ink.sammlung.cc/detail/motetcycle-0411/de?source=table\u0026cursor=eyJmcm9tIjowLCJzaXplIjozMDB9\u0026search=motetcycle\u0026vocabulary=motetcycle%2C';">
+                                                    <td>
+                                                                <img src="https://ba14ns21403-sec1.fhnw.ch/mediasrv/hsm/motet_cycles_data_motet_cycles_data_motet_cycles_data.png/resize/size100x100/formatPNG/autorotate" class="img-fluid rounded" alt="">
+                                                    </td>
+                                                    <td>motetcycle-0411</td>
+                                                    <td>C14a Ave virgo gloriosa caeli iubar</td>
+                                                    <td></td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                </tr>
+                                                <tr onclick="window.location='https:\/\/ink.sammlung.cc/detail/motetcycle-0402/de?source=table\u0026cursor=eyJmcm9tIjowLCJzaXplIjozMDB9\u0026search=motetcycle\u0026vocabulary=motetcycle%2C';">
+                                                    <td>
+                                                                <img src="https://ba14ns21403-sec1.fhnw.ch/mediasrv/hsm/motet_cycles_data_motet_cycles_data_motet_cycles_data.png/resize/size100x100/formatPNG/autorotate" class="img-fluid rounded" alt="">
+                                                    </td>
+                                                    <td>motetcycle-0402</td>
+                                                    <td>C05 Prodiit puer de puella</td>
+                                                    <td></td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                </tr>
+                                                <tr onclick="window.location='https:\/\/ink.sammlung.cc/detail/motetcycle-0407/de?source=table\u0026cursor=eyJmcm9tIjowLCJzaXplIjozMDB9\u0026search=motetcycle\u0026vocabulary=motetcycle%2C';">
+                                                    <td>
+                                                                <img src="https://ba14ns21403-sec1.fhnw.ch/mediasrv/hsm/motet_cycles_data_motet_cycles_data_motet_cycles_data.png/resize/size100x100/formatPNG/autorotate" class="img-fluid rounded" alt="">
+                                                    </td>
+                                                    <td>motetcycle-0407</td>
+                                                    <td>C10 Ave mundi reparatrix</td>
+                                                    <td></td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                </tr>
+                                                <tr onclick="window.location='https:\/\/ink.sammlung.cc/detail/motetcycle-0410/de?source=table\u0026cursor=eyJmcm9tIjowLCJzaXplIjozMDB9\u0026search=motetcycle\u0026vocabulary=motetcycle%2C';">
+                                                    <td>
+                                                                <img src="https://ba14ns21403-sec1.fhnw.ch/mediasrv/hsm/motet_cycles_data_motet_cycles_data_motet_cycles_data.png/resize/size100x100/formatPNG/autorotate" class="img-fluid rounded" alt="">
+                                                    </td>
+                                                    <td>motetcycle-0410</td>
+                                                    <td>C13a Quam pulchra es (8 motets)</td>
+                                                    <td></td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                </tr>
+                                                <tr onclick="window.location='https:\/\/ink.sammlung.cc/detail/motetcycle-0409/de?source=table\u0026cursor=eyJmcm9tIjowLCJzaXplIjozMDB9\u0026search=motetcycle\u0026vocabulary=motetcycle%2C';">
+                                                    <td>
+                                                                <img src="https://ba14ns21403-sec1.fhnw.ch/mediasrv/hsm/motet_cycles_data_motet_cycles_data_motet_cycles_data.png/resize/size100x100/formatPNG/autorotate" class="img-fluid rounded" alt="">
+                                                    </td>
+                                                    <td>motetcycle-0409</td>
+                                                    <td>C12a Ave mundi domina</td>
+                                                    <td></td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                </tr>
+                                                <tr onclick="window.location='https:\/\/ink.sammlung.cc/detail/motetcycle-0408/de?source=table\u0026cursor=eyJmcm9tIjowLCJzaXplIjozMDB9\u0026search=motetcycle\u0026vocabulary=motetcycle%2C';">
+                                                    <td>
+                                                                <img src="https://ba14ns21403-sec1.fhnw.ch/mediasrv/hsm/motet_cycles_data_motet_cycles_data_motet_cycles_data.png/resize/size100x100/formatPNG/autorotate" class="img-fluid rounded" alt="">
+                                                    </td>
+                                                    <td>motetcycle-0408</td>
+                                                    <td>C11 Christi mater ave</td>
+                                                    <td></td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                </tr>
+                                                <tr onclick="window.location='https:\/\/ink.sammlung.cc/detail/motetcycle-0413/de?source=table\u0026cursor=eyJmcm9tIjowLCJzaXplIjozMDB9\u0026search=motetcycle\u0026vocabulary=motetcycle%2C';">
+                                                    <td>
+                                                                <img src="https://ba14ns21403-sec1.fhnw.ch/mediasrv/hsm/motet_cycles_data_motet_cycles_data_motet_cycles_data.png/resize/size100x100/formatPNG/autorotate" class="img-fluid rounded" alt="">
+                                                    </td>
+                                                    <td>motetcycle-0413</td>
+                                                    <td>C16 Ave domine Iesu Christe</td>
+                                                    <td></td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                </tr>
+                                                <tr onclick="window.location='https:\/\/ink.sammlung.cc/detail/motetcycle-0416/de?source=table\u0026cursor=eyJmcm9tIjowLCJzaXplIjozMDB9\u0026search=motetcycle\u0026vocabulary=motetcycle%2C';">
+                                                    <td>
+                                                                <img src="https://ba14ns21403-sec1.fhnw.ch/mediasrv/hsm/motet_cycles_data_motet_cycles_data_motet_cycles_data.png/resize/size100x100/formatPNG/autorotate" class="img-fluid rounded" alt="">
+                                                    </td>
+                                                    <td>motetcycle-0416</td>
+                                                    <td>C19 O sacrum convivium (I-Mfd 2)</td>
+                                                    <td></td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                </tr>
+                                                <tr onclick="window.location='https:\/\/ink.sammlung.cc/detail/motetcycle-0412/de?source=table\u0026cursor=eyJmcm9tIjowLCJzaXplIjozMDB9\u0026search=motetcycle\u0026vocabulary=motetcycle%2C';">
+                                                    <td>
+                                                                <img src="https://ba14ns21403-sec1.fhnw.ch/mediasrv/hsm/motet_cycles_data_motet_cycles_data_motet_cycles_data.png/resize/size100x100/formatPNG/autorotate" class="img-fluid rounded" alt="">
+                                                    </td>
+                                                    <td>motetcycle-0412</td>
+                                                    <td>C15 Exultabit cor meum</td>
+                                                    <td></td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                </tr>
+                                                <tr onclick="window.location='https:\/\/ink.sammlung.cc/detail/motetcycle-0414/de?source=table\u0026cursor=eyJmcm9tIjowLCJzaXplIjozMDB9\u0026search=motetcycle\u0026vocabulary=motetcycle%2C';">
+                                                    <td>
+                                                                <img src="https://ba14ns21403-sec1.fhnw.ch/mediasrv/hsm/motet_cycles_data_motet_cycles_data_motet_cycles_data.png/resize/size100x100/formatPNG/autorotate" class="img-fluid rounded" alt="">
+                                                    </td>
+                                                    <td>motetcycle-0414</td>
+                                                    <td>C17 Hodie nobis de virgine</td>
+                                                    <td></td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                </tr>
+                                                <tr onclick="window.location='https:\/\/ink.sammlung.cc/detail/motetcycle-0419/de?source=table\u0026cursor=eyJmcm9tIjowLCJzaXplIjozMDB9\u0026search=motetcycle\u0026vocabulary=motetcycle%2C';">
+                                                    <td>
+                                                                <img src="https://ba14ns21403-sec1.fhnw.ch/mediasrv/hsm/motet_cycles_data_motet_cycles_data_motet_cycles_data.png/resize/size100x100/formatPNG/autorotate" class="img-fluid rounded" alt="">
+                                                    </td>
+                                                    <td>motetcycle-0419</td>
+                                                    <td>C22a Beata et venerabilis virgo</td>
+                                                    <td></td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                </tr>
+                                                <tr onclick="window.location='https:\/\/ink.sammlung.cc/detail/motetcycle-0420/de?source=table\u0026cursor=eyJmcm9tIjowLCJzaXplIjozMDB9\u0026search=motetcycle\u0026vocabulary=motetcycle%2C';">
+                                                    <td>
+                                                                <img src="https://ba14ns21403-sec1.fhnw.ch/mediasrv/hsm/motet_cycles_data_motet_cycles_data_motet_cycles_data.png/resize/size100x100/formatPNG/autorotate" class="img-fluid rounded" alt="">
+                                                    </td>
+                                                    <td>motetcycle-0420</td>
+                                                    <td>C23 Ave regina caelorum mater</td>
+                                                    <td></td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                </tr>
+                                                <tr onclick="window.location='https:\/\/ink.sammlung.cc/detail/motetcycle-0423/de?source=table\u0026cursor=eyJmcm9tIjowLCJzaXplIjozMDB9\u0026search=motetcycle\u0026vocabulary=motetcycle%2C';">
+                                                    <td>
+                                                                <img src="https://ba14ns21403-sec1.fhnw.ch/mediasrv/hsm/motet_cycles_data_motet_cycles_data_motet_cycles_data.png/resize/size100x100/formatPNG/autorotate" class="img-fluid rounded" alt="">
+                                                    </td>
+                                                    <td>motetcycle-0423</td>
+                                                    <td>C26 Assumpta est Maria &#43; Missa</td>
+                                                    <td></td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                </tr>
+                                                <tr onclick="window.location='https:\/\/ink.sammlung.cc/detail/motetcycle-0418/de?source=table\u0026cursor=eyJmcm9tIjowLCJzaXplIjozMDB9\u0026search=motetcycle\u0026vocabulary=motetcycle%2C';">
+                                                    <td>
+                                                                <img src="https://ba14ns21403-sec1.fhnw.ch/mediasrv/hsm/motet_cycles_data_motet_cycles_data_motet_cycles_data.png/resize/size100x100/formatPNG/autorotate" class="img-fluid rounded" alt="">
+                                                    </td>
+                                                    <td>motetcycle-0418</td>
+                                                    <td>C14b Ave virgo gloriosa caeli iubar / ‹Missa› Galeazescha</td>
+                                                    <td></td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                </tr>
+                                                <tr onclick="window.location='https:\/\/ink.sammlung.cc/detail/motetcycle-0415/de?source=table\u0026cursor=eyJmcm9tIjowLCJzaXplIjozMDB9\u0026search=motetcycle\u0026vocabulary=motetcycle%2C';">
+                                                    <td>
+                                                                <img src="https://ba14ns21403-sec1.fhnw.ch/mediasrv/hsm/motet_cycles_data_motet_cycles_data_motet_cycles_data.png/resize/size100x100/formatPNG/autorotate" class="img-fluid rounded" alt="">
+                                                    </td>
+                                                    <td>motetcycle-0415</td>
+                                                    <td>C13b Quam pulchra es (3 motets)</td>
+                                                    <td></td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                </tr>
+                                                <tr onclick="window.location='https:\/\/ink.sammlung.cc/detail/motetcycle-0417/de?source=table\u0026cursor=eyJmcm9tIjowLCJzaXplIjozMDB9\u0026search=motetcycle\u0026vocabulary=motetcycle%2C';">
+                                                    <td>
+                                                                <img src="https://ba14ns21403-sec1.fhnw.ch/mediasrv/hsm/motet_cycles_data_motet_cycles_data_motet_cycles_data.png/resize/size100x100/formatPNG/autorotate" class="img-fluid rounded" alt="">
+                                                    </td>
+                                                    <td>motetcycle-0417</td>
+                                                    <td>C20 Hac in die / Missa sanctae Caterinae v. et m.</td>
+                                                    <td></td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                </tr>
+                                                <tr onclick="window.location='https:\/\/ink.sammlung.cc/detail/motetcycle-0421/de?source=table\u0026cursor=eyJmcm9tIjowLCJzaXplIjozMDB9\u0026search=motetcycle\u0026vocabulary=motetcycle%2C';">
+                                                    <td>
+                                                                <img src="https://ba14ns21403-sec1.fhnw.ch/mediasrv/hsm/motet_cycles_data_motet_cycles_data_motet_cycles_data.png/resize/size100x100/formatPNG/autorotate" class="img-fluid rounded" alt="">
+                                                    </td>
+                                                    <td>motetcycle-0421</td>
+                                                    <td>C24 Caeli quondam roraverunt</td>
+                                                    <td></td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                </tr>
+                                                <tr onclick="window.location='https:\/\/ink.sammlung.cc/detail/motetcycle-0424/de?source=table\u0026cursor=eyJmcm9tIjowLCJzaXplIjozMDB9\u0026search=motetcycle\u0026vocabulary=motetcycle%2C';">
+                                                    <td>
+                                                                <img src="https://ba14ns21403-sec1.fhnw.ch/mediasrv/hsm/motet_cycles_data_motet_cycles_data_motet_cycles_data.png/resize/size100x100/formatPNG/autorotate" class="img-fluid rounded" alt="">
+                                                    </td>
+                                                    <td>motetcycle-0424</td>
+                                                    <td>C27 Nativitas tua dei genitrix &#43; Missa</td>
+                                                    <td></td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                </tr>
+                                                <tr onclick="window.location='https:\/\/ink.sammlung.cc/detail/motetcycle-0425/de?source=table\u0026cursor=eyJmcm9tIjowLCJzaXplIjozMDB9\u0026search=motetcycle\u0026vocabulary=motetcycle%2C';">
+                                                    <td>
+                                                                <img src="https://ba14ns21403-sec1.fhnw.ch/mediasrv/hsm/motet_cycles_data_motet_cycles_data_motet_cycles_data.png/resize/size100x100/formatPNG/autorotate" class="img-fluid rounded" alt="">
+                                                    </td>
+                                                    <td>motetcycle-0425</td>
+                                                    <td>C28 Sancti spiritus adsit</td>
+                                                    <td></td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                </tr>
+                                                <tr onclick="window.location='https:\/\/ink.sammlung.cc/detail/motetcycle-0426/de?source=table\u0026cursor=eyJmcm9tIjowLCJzaXplIjozMDB9\u0026search=motetcycle\u0026vocabulary=motetcycle%2C';">
+                                                    <td>
+                                                                <img src="https://ba14ns21403-sec1.fhnw.ch/mediasrv/hsm/motet_cycles_data_motet_cycles_data_motet_cycles_data.png/resize/size100x100/formatPNG/autorotate" class="img-fluid rounded" alt="">
+                                                    </td>
+                                                    <td>motetcycle-0426</td>
+                                                    <td>C29 O admirabile commercium (with Sanctus)</td>
+                                                    <td></td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                </tr>
+                                                <tr onclick="window.location='https:\/\/ink.sammlung.cc/detail/motetcycle-0422/de?source=table\u0026cursor=eyJmcm9tIjowLCJzaXplIjozMDB9\u0026search=motetcycle\u0026vocabulary=motetcycle%2C';">
+                                                    <td>
+                                                                <img src="https://ba14ns21403-sec1.fhnw.ch/mediasrv/hsm/motet_cycles_data_motet_cycles_data_motet_cycles_data.png/resize/size100x100/formatPNG/autorotate" class="img-fluid rounded" alt="">
+                                                    </td>
+                                                    <td>motetcycle-0422</td>
+                                                    <td>C25 Imperatrix gloriosa &#43; Missa</td>
+                                                    <td></td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                </tr>
+                                                <tr onclick="window.location='https:\/\/ink.sammlung.cc/detail/motetcycle-0430/de?source=table\u0026cursor=eyJmcm9tIjowLCJzaXplIjozMDB9\u0026search=motetcycle\u0026vocabulary=motetcycle%2C';">
+                                                    <td>
+                                                                <img src="https://ba14ns21403-sec1.fhnw.ch/mediasrv/hsm/motet_cycles_data_motet_cycles_data_motet_cycles_data.png/resize/size100x100/formatPNG/autorotate" class="img-fluid rounded" alt="">
+                                                    </td>
+                                                    <td>motetcycle-0430</td>
+                                                    <td>C33b Magnum nomen domini (4 motets)</td>
+                                                    <td></td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                </tr>
+                                                <tr onclick="window.location='https:\/\/ink.sammlung.cc/detail/motetcycle-0429/de?source=table\u0026cursor=eyJmcm9tIjowLCJzaXplIjozMDB9\u0026search=motetcycle\u0026vocabulary=motetcycle%2C';">
+                                                    <td>
+                                                                <img src="https://ba14ns21403-sec1.fhnw.ch/mediasrv/hsm/motet_cycles_data_motet_cycles_data_motet_cycles_data.png/resize/size100x100/formatPNG/autorotate" class="img-fluid rounded" alt="">
+                                                    </td>
+                                                    <td>motetcycle-0429</td>
+                                                    <td>C22b Diffusa est gratia</td>
+                                                    <td></td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                </tr>
+                                                <tr onclick="window.location='https:\/\/ink.sammlung.cc/detail/motetcycle-0428/de?source=table\u0026cursor=eyJmcm9tIjowLCJzaXplIjozMDB9\u0026search=motetcycle\u0026vocabulary=motetcycle%2C';">
+                                                    <td>
+                                                                <img src="https://ba14ns21403-sec1.fhnw.ch/mediasrv/hsm/motet_cycles_data_motet_cycles_data_motet_cycles_data.png/resize/size100x100/formatPNG/autorotate" class="img-fluid rounded" alt="">
+                                                    </td>
+                                                    <td>motetcycle-0428</td>
+                                                    <td>C31 Verbum dei deo natum</td>
+                                                    <td></td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                </tr>
+                                                <tr onclick="window.location='https:\/\/ink.sammlung.cc/detail/motetcycle-0431/de?source=table\u0026cursor=eyJmcm9tIjowLCJzaXplIjozMDB9\u0026search=motetcycle\u0026vocabulary=motetcycle%2C';">
+                                                    <td>
+                                                                <img src="https://ba14ns21403-sec1.fhnw.ch/mediasrv/hsm/motet_cycles_data_motet_cycles_data_motet_cycles_data.png/resize/size100x100/formatPNG/autorotate" class="img-fluid rounded" alt="">
+                                                    </td>
+                                                    <td>motetcycle-0431</td>
+                                                    <td>C53b Ora pro nobis virgo</td>
+                                                    <td></td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                </tr>
+                                                <tr onclick="window.location='https:\/\/ink.sammlung.cc/detail/motetcycle-0433/de?source=table\u0026cursor=eyJmcm9tIjowLCJzaXplIjozMDB9\u0026search=motetcycle\u0026vocabulary=motetcycle%2C';">
+                                                    <td>
+                                                                <img src="https://ba14ns21403-sec1.fhnw.ch/mediasrv/hsm/motet_cycles_data_motet_cycles_data_motet_cycles_data.png/resize/size100x100/formatPNG/autorotate" class="img-fluid rounded" alt="">
+                                                    </td>
+                                                    <td>motetcycle-0433</td>
+                                                    <td>C36 Gaudeamus omnes in domino</td>
+                                                    <td></td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                </tr>
+                                                <tr onclick="window.location='https:\/\/ink.sammlung.cc/detail/motetcycle-0432/de?source=table\u0026cursor=eyJmcm9tIjowLCJzaXplIjozMDB9\u0026search=motetcycle\u0026vocabulary=motetcycle%2C';">
+                                                    <td>
+                                                                <img src="https://ba14ns21403-sec1.fhnw.ch/mediasrv/hsm/motet_cycles_data_motet_cycles_data_motet_cycles_data.png/resize/size100x100/formatPNG/autorotate" class="img-fluid rounded" alt="">
+                                                    </td>
+                                                    <td>motetcycle-0432</td>
+                                                    <td>C35 Missus est ab arce patris (with Agnus)</td>
+                                                    <td></td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                </tr>
+                                                <tr onclick="window.location='https:\/\/ink.sammlung.cc/detail/motetcycle-0434/de?source=table\u0026cursor=eyJmcm9tIjowLCJzaXplIjozMDB9\u0026search=motetcycle\u0026vocabulary=motetcycle%2C';">
+                                                    <td>
+                                                                <img src="https://ba14ns21403-sec1.fhnw.ch/mediasrv/hsm/motet_cycles_data_motet_cycles_data_motet_cycles_data.png/resize/size100x100/formatPNG/autorotate" class="img-fluid rounded" alt="">
+                                                    </td>
+                                                    <td>motetcycle-0434</td>
+                                                    <td>C37a Spiritus domini replevit orbem (I-Mfd [4])</td>
+                                                    <td></td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                </tr>
+                                                <tr onclick="window.location='https:\/\/ink.sammlung.cc/detail/motetcycle-0438/de?source=table\u0026cursor=eyJmcm9tIjowLCJzaXplIjozMDB9\u0026search=motetcycle\u0026vocabulary=motetcycle%2C';">
+                                                    <td>
+                                                                <img src="https://ba14ns21403-sec1.fhnw.ch/mediasrv/hsm/motet_cycles_data_motet_cycles_data_motet_cycles_data.png/resize/size100x100/formatPNG/autorotate" class="img-fluid rounded" alt="">
+                                                    </td>
+                                                    <td>motetcycle-0438</td>
+                                                    <td>C41 O domine Iesu Christe / Officium de passione</td>
+                                                    <td></td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                </tr>
+                                                <tr onclick="window.location='https:\/\/ink.sammlung.cc/detail/motetcycle-0436/de?source=table\u0026cursor=eyJmcm9tIjowLCJzaXplIjozMDB9\u0026search=motetcycle\u0026vocabulary=motetcycle%2C';">
+                                                    <td>
+                                                                <img src="https://ba14ns21403-sec1.fhnw.ch/mediasrv/hsm/motet_cycles_data_motet_cycles_data_motet_cycles_data.png/resize/size100x100/formatPNG/autorotate" class="img-fluid rounded" alt="">
+                                                    </td>
+                                                    <td>motetcycle-0436</td>
+                                                    <td>C39 Beata dei genitrix</td>
+                                                    <td></td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                </tr>
+                                                <tr onclick="window.location='https:\/\/ink.sammlung.cc/detail/motetcycle-0435/de?source=table\u0026cursor=eyJmcm9tIjowLCJzaXplIjozMDB9\u0026search=motetcycle\u0026vocabulary=motetcycle%2C';">
+                                                    <td>
+                                                                <img src="https://ba14ns21403-sec1.fhnw.ch/mediasrv/hsm/motet_cycles_data_motet_cycles_data_motet_cycles_data.png/resize/size100x100/formatPNG/autorotate" class="img-fluid rounded" alt="">
+                                                    </td>
+                                                    <td>motetcycle-0435</td>
+                                                    <td>C38 Beata es virgo puerpera</td>
+                                                    <td></td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                </tr>
+                                                <tr onclick="window.location='https:\/\/ink.sammlung.cc/detail/motetcycle-0440/de?source=table\u0026cursor=eyJmcm9tIjowLCJzaXplIjozMDB9\u0026search=motetcycle\u0026vocabulary=motetcycle%2C';">
+                                                    <td>
+                                                                <img src="https://ba14ns21403-sec1.fhnw.ch/mediasrv/hsm/motet_cycles_data_motet_cycles_data_motet_cycles_data.png/resize/size100x100/formatPNG/autorotate" class="img-fluid rounded" alt="">
+                                                    </td>
+                                                    <td>motetcycle-0440</td>
+                                                    <td>C44 In nomine Iesu / Officium de cruce</td>
+                                                    <td></td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                </tr>
+                                                <tr onclick="window.location='https:\/\/ink.sammlung.cc/detail/motetcycle-0437/de?source=table\u0026cursor=eyJmcm9tIjowLCJzaXplIjozMDB9\u0026search=motetcycle\u0026vocabulary=motetcycle%2C';">
+                                                    <td>
+                                                                <img src="https://ba14ns21403-sec1.fhnw.ch/mediasrv/hsm/motet_cycles_data_motet_cycles_data_motet_cycles_data.png/resize/size100x100/formatPNG/autorotate" class="img-fluid rounded" alt="">
+                                                    </td>
+                                                    <td>motetcycle-0437</td>
+                                                    <td>C13c Quam pulchra es (3 motets)</td>
+                                                    <td></td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                </tr>
+                                                <tr onclick="window.location='https:\/\/ink.sammlung.cc/detail/motetcycle-0439/de?source=table\u0026cursor=eyJmcm9tIjowLCJzaXplIjozMDB9\u0026search=motetcycle\u0026vocabulary=motetcycle%2C';">
+                                                    <td>
+                                                                <img src="https://ba14ns21403-sec1.fhnw.ch/mediasrv/hsm/motet_cycles_data_motet_cycles_data_motet_cycles_data.png/resize/size100x100/formatPNG/autorotate" class="img-fluid rounded" alt="">
+                                                    </td>
+                                                    <td>motetcycle-0439</td>
+                                                    <td>C42 Qui velatus facie fuisti</td>
+                                                    <td></td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                </tr>
+                                                <tr onclick="window.location='https:\/\/ink.sammlung.cc/detail/motetcycle-0441/de?source=table\u0026cursor=eyJmcm9tIjowLCJzaXplIjozMDB9\u0026search=motetcycle\u0026vocabulary=motetcycle%2C';">
+                                                    <td>
+                                                                <img src="https://ba14ns21403-sec1.fhnw.ch/mediasrv/hsm/motet_cycles_data_motet_cycles_data_motet_cycles_data.png/resize/size100x100/formatPNG/autorotate" class="img-fluid rounded" alt="">
+                                                    </td>
+                                                    <td>motetcycle-0441</td>
+                                                    <td>C47a Virgo praecellens (5 motets)</td>
+                                                    <td></td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                </tr>
+                                                <tr onclick="window.location='https:\/\/ink.sammlung.cc/detail/motetcycle-0442/de?source=table\u0026cursor=eyJmcm9tIjowLCJzaXplIjozMDB9\u0026search=motetcycle\u0026vocabulary=motetcycle%2C';">
+                                                    <td>
+                                                                <img src="https://ba14ns21403-sec1.fhnw.ch/mediasrv/hsm/motet_cycles_data_motet_cycles_data_motet_cycles_data.png/resize/size100x100/formatPNG/autorotate" class="img-fluid rounded" alt="">
+                                                    </td>
+                                                    <td>motetcycle-0442</td>
+                                                    <td>C51 Salvatoris mater pia</td>
+                                                    <td></td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                </tr>
+                                                <tr onclick="window.location='https:\/\/ink.sammlung.cc/detail/motetcycle-1222/de?source=table\u0026cursor=eyJmcm9tIjowLCJzaXplIjozMDB9\u0026search=motetcycle\u0026vocabulary=motetcycle%2C';">
+                                                    <td>
+                                                                <img src="https://ba14ns21403-sec1.fhnw.ch/mediasrv/hsm/motet_cycles_data_motet_cycles_data_motet_cycles_data.png/resize/size100x100/formatPNG/autorotate" class="img-fluid rounded" alt="">
+                                                    </td>
+                                                    <td>motetcycle-1222</td>
+                                                    <td>C47b Virgo praecellens (4 motets)</td>
+                                                    <td></td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                </tr>
+                                                <tr onclick="window.location='https:\/\/ink.sammlung.cc/detail/motetcycle-1944/de?source=table\u0026cursor=eyJmcm9tIjowLCJzaXplIjozMDB9\u0026search=motetcycle\u0026vocabulary=motetcycle%2C';">
+                                                    <td>
+                                                                <img src="https://ba14ns21403-sec1.fhnw.ch/mediasrv/hsm/motet_cycles_data_motet_cycles_data_motet_cycles_data.png/resize/size100x100/formatPNG/autorotate" class="img-fluid rounded" alt="">
+                                                    </td>
+                                                    <td>motetcycle-1944</td>
+                                                    <td>C61a O domine Iesu Christe (7 motets)</td>
+                                                    <td></td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                </tr>
+                                                <tr onclick="window.location='https:\/\/ink.sammlung.cc/detail/motetcycle-0447/de?source=table\u0026cursor=eyJmcm9tIjowLCJzaXplIjozMDB9\u0026search=motetcycle\u0026vocabulary=motetcycle%2C';">
+                                                    <td>
+                                                                <img src="https://ba14ns21403-sec1.fhnw.ch/mediasrv/hsm/motet_cycles_data_motet_cycles_data_motet_cycles_data.png/resize/size100x100/formatPNG/autorotate" class="img-fluid rounded" alt="">
+                                                    </td>
+                                                    <td>motetcycle-0447</td>
+                                                    <td>C57 O domine Iesu Christe</td>
+                                                    <td></td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                </tr>
+                                                <tr onclick="window.location='https:\/\/ink.sammlung.cc/detail/motetcycle-0450/de?source=table\u0026cursor=eyJmcm9tIjowLCJzaXplIjozMDB9\u0026search=motetcycle\u0026vocabulary=motetcycle%2C';">
+                                                    <td>
+                                                                <img src="https://ba14ns21403-sec1.fhnw.ch/mediasrv/hsm/motet_cycles_data_motet_cycles_data_motet_cycles_data.png/resize/size100x100/formatPNG/autorotate" class="img-fluid rounded" alt="">
+                                                    </td>
+                                                    <td>motetcycle-0450</td>
+                                                    <td>C68 Missa brevis octavi toni &#43; Ave verum corpus : Ave mater salvatoris</td>
+                                                    <td></td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                </tr>
+                                                <tr onclick="window.location='https:\/\/ink.sammlung.cc/detail/motetcycle-0443/de?source=table\u0026cursor=eyJmcm9tIjowLCJzaXplIjozMDB9\u0026search=motetcycle\u0026vocabulary=motetcycle%2C';">
+                                                    <td>
+                                                                <img src="https://ba14ns21403-sec1.fhnw.ch/mediasrv/hsm/motet_cycles_data_motet_cycles_data_motet_cycles_data.png/resize/size100x100/formatPNG/autorotate" class="img-fluid rounded" alt="">
+                                                    </td>
+                                                    <td>motetcycle-0443</td>
+                                                    <td>C53a Vultum tuum</td>
+                                                    <td></td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                </tr>
+                                                <tr onclick="window.location='https:\/\/ink.sammlung.cc/detail/motetcycle-0444/de?source=table\u0026cursor=eyJmcm9tIjowLCJzaXplIjozMDB9\u0026search=motetcycle\u0026vocabulary=motetcycle%2C';">
+                                                    <td>
+                                                                <img src="https://ba14ns21403-sec1.fhnw.ch/mediasrv/hsm/motet_cycles_data_motet_cycles_data_motet_cycles_data.png/resize/size100x100/formatPNG/autorotate" class="img-fluid rounded" alt="">
+                                                    </td>
+                                                    <td>motetcycle-0444</td>
+                                                    <td>C37b Spiritus domini replevit orbem (MotettiLQ)</td>
+                                                    <td></td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                </tr>
+                                                <tr onclick="window.location='https:\/\/ink.sammlung.cc/detail/motetcycle-0446/de?source=table\u0026cursor=eyJmcm9tIjowLCJzaXplIjozMDB9\u0026search=motetcycle\u0026vocabulary=motetcycle%2C';">
+                                                    <td>
+                                                                <img src="https://ba14ns21403-sec1.fhnw.ch/mediasrv/hsm/motet_cycles_data_motet_cycles_data_motet_cycles_data.png/resize/size100x100/formatPNG/autorotate" class="img-fluid rounded" alt="">
+                                                    </td>
+                                                    <td>motetcycle-0446</td>
+                                                    <td>C56 Natus sapientia</td>
+                                                    <td></td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                </tr>
+                                                <tr onclick="window.location='https:\/\/ink.sammlung.cc/detail/motetcycle-0445/de?source=table\u0026cursor=eyJmcm9tIjowLCJzaXplIjozMDB9\u0026search=motetcycle\u0026vocabulary=motetcycle%2C';">
+                                                    <td>
+                                                                <img src="https://ba14ns21403-sec1.fhnw.ch/mediasrv/hsm/motet_cycles_data_motet_cycles_data_motet_cycles_data.png/resize/size100x100/formatPNG/autorotate" class="img-fluid rounded" alt="">
+                                                    </td>
+                                                    <td>motetcycle-0445</td>
+                                                    <td>C55 Gaude flore virginali</td>
+                                                    <td></td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                </tr>
+                                                <tr onclick="window.location='https:\/\/ink.sammlung.cc/detail/motetcycle-1986/de?source=table\u0026cursor=eyJmcm9tIjowLCJzaXplIjozMDB9\u0026search=motetcycle\u0026vocabulary=motetcycle%2C';">
+                                                    <td>
+                                                                <img src="https://ba14ns21403-sec1.fhnw.ch/mediasrv/hsm/motet_cycles_data_motet_cycles_data_motet_cycles_data.png/resize/size100x100/formatPNG/autorotate" class="img-fluid rounded" alt="">
+                                                    </td>
+                                                    <td>motetcycle-1986</td>
+                                                    <td>C33a Magnum nomen domini (2 motets)</td>
+                                                    <td></td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                </tr>
+                                                <tr onclick="window.location='https:\/\/ink.sammlung.cc/detail/motetcycle-0448/de?source=table\u0026cursor=eyJmcm9tIjowLCJzaXplIjozMDB9\u0026search=motetcycle\u0026vocabulary=motetcycle%2C';">
+                                                    <td>
+                                                                <img src="https://ba14ns21403-sec1.fhnw.ch/mediasrv/hsm/motet_cycles_data_motet_cycles_data_motet_cycles_data.png/resize/size100x100/formatPNG/autorotate" class="img-fluid rounded" alt="">
+                                                    </td>
+                                                    <td>motetcycle-0448</td>
+                                                    <td>C58 O admirabile commercium</td>
+                                                    <td></td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                </tr>
+                                                <tr onclick="window.location='https:\/\/ink.sammlung.cc/detail/motetcycle-1204/de?source=table\u0026cursor=eyJmcm9tIjowLCJzaXplIjozMDB9\u0026search=motetcycle\u0026vocabulary=motetcycle%2C';">
+                                                    <td>
+                                                                <img src="https://ba14ns21403-sec1.fhnw.ch/mediasrv/hsm/motet_cycles_data_motet_cycles_data_motet_cycles_data.png/resize/size100x100/formatPNG/autorotate" class="img-fluid rounded" alt="">
+                                                    </td>
+                                                    <td>motetcycle-1204</td>
+                                                    <td>C12b ‹Ave regina caelorum› ave domina angelorum</td>
+                                                    <td></td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                </tr>
+                                                <tr onclick="window.location='https:\/\/ink.sammlung.cc/detail/motetcycle-0451/de?source=table\u0026cursor=eyJmcm9tIjowLCJzaXplIjozMDB9\u0026search=motetcycle\u0026vocabulary=motetcycle%2C';">
+                                                    <td>
+                                                                <img src="https://ba14ns21403-sec1.fhnw.ch/mediasrv/hsm/motet_cycles_data_motet_cycles_data_motet_cycles_data.png/resize/size100x100/formatPNG/autorotate" class="img-fluid rounded" alt="">
+                                                    </td>
+                                                    <td>motetcycle-0451</td>
+                                                    <td>C53c Sancta dei genitrix</td>
+                                                    <td></td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                </tr>
+                                                <tr onclick="window.location='https:\/\/ink.sammlung.cc/detail/motetcycle-1993/de?source=table\u0026cursor=eyJmcm9tIjowLCJzaXplIjozMDB9\u0026search=motetcycle\u0026vocabulary=motetcycle%2C';">
+                                                    <td>
+                                                                <img src="https://ba14ns21403-sec1.fhnw.ch/mediasrv/hsm/motet_cycles_data_motet_cycles_data_motet_cycles_data.png/resize/size100x100/formatPNG/autorotate" class="img-fluid rounded" alt="">
+                                                    </td>
+                                                    <td>motetcycle-1993</td>
+                                                    <td>C61b O domine Iesu Christe (3 motets)</td>
+                                                    <td></td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                </tr>
+                                                <tr onclick="window.location='https:\/\/ink.sammlung.cc/detail/motetcycle-1908/de?source=table\u0026cursor=eyJmcm9tIjowLCJzaXplIjozMDB9\u0026search=motetcycle\u0026vocabulary=motetcycle%2C';">
+                                                    <td>
+                                                                <img src="https://ba14ns21403-sec1.fhnw.ch/mediasrv/hsm/motet_cycles_data_motet_cycles_data_motet_cycles_data.png/resize/size100x100/formatPNG/autorotate" class="img-fluid rounded" alt="">
+                                                    </td>
+                                                    <td>motetcycle-1908</td>
+                                                    <td>C60 Sanctus &#43; Ave virgo gloriosa Maria mater gratiae</td>
+                                                    <td></td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                </tr>
+                                                <tr onclick="window.location='https:\/\/ink.sammlung.cc/detail/motetcycle-1894/de?source=table\u0026cursor=eyJmcm9tIjowLCJzaXplIjozMDB9\u0026search=motetcycle\u0026vocabulary=motetcycle%2C';">
+                                                    <td>
+                                                                <img src="https://ba14ns21403-sec1.fhnw.ch/mediasrv/hsm/motet_cycles_data_motet_cycles_data_motet_cycles_data.png/resize/size100x100/formatPNG/autorotate" class="img-fluid rounded" alt="">
+                                                    </td>
+                                                    <td>motetcycle-1894</td>
+                                                    <td>C59 Popule meus quid feci tibi</td>
+                                                    <td></td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                </tr>
+                                                <tr onclick="window.location='https:\/\/ink.sammlung.cc/detail/motetcycle-0000/de?source=table\u0026cursor=eyJmcm9tIjowLCJzaXplIjozMDB9\u0026search=motetcycle\u0026vocabulary=motetcycle%2C';">
+                                                    <td>
+                                                                <img src="https://ba14ns21403-sec1.fhnw.ch/mediasrv/hsm/motet_cycles_data_motet_cycles_data_motet_cycles_data.png/resize/size100x100/formatPNG/autorotate" class="img-fluid rounded" alt="">
+                                                    </td>
+                                                    <td>motetcycle-0000</td>
+                                                    <td>Motets without Cycle</td>
+                                                    <td></td>
+                                                    <td>
+                                                    </td>
+                                                    <td>
+                                                    </td>
+                                                </tr>
+                                        </tbody>
+                                        </thead>
+                                    </table>
+                            </div>
+                        </div>
+                        <nav class="navbar">
+                            <a href="?search=motetcycle&amp;vocabulary=motetcycle%2C&cursor=" class="disabled btn btn-secondary">
+                                <i class="bi bi-arrow-left"></i>
+                            </a>
+                            <span>
+                                Gefundene Objekte: 59</span>
+                            <a href="?search=motetcycle&amp;vocabulary=motetcycle%2C&cursor=" class="disabled btn btn-secondary">
+                                <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div style="overflow: auto; width:500px;" id="facetBar"
+         class="d-flex flex-column flex-shrink-0
+					p-3 offcanvas-lg offcanvas-end">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas right</h5>
+            <button type="button" class="btn-close" data-bs-toggle="offcanvas" data-bs-target="#facetBar" aria-controls="facetBar" aria-label="Close"></button>
+        </div>
+        <ul class="mynav nav nav-pills flex-column mb-auto">
+            <li class="nav-item mb-1">
+                <div class="d-block gap-2">
+                                <button
+                                        style="margin: 1px; padding: 1px 4px 1px 4px;"
+                                        onclick="this.removeAttribute('selected');search('https:\/\/ink.sammlung.cc\/table\/de', '', false, false)"
+                                        type="button"
+                                        class="btn btn-secondary vocButton"
+                                        value="voc:generic:motetcycle" selected="true"
+                                >
+                                    <i class="bi bi-check"></i>&nbsp;motetcycle
+                                </button>
+
+                </div>
+            </li>
+            <li class="nav-item mb-1">
+                <hr />
+
+                <div class="d-block gap-2">
+
+
+                        <button
+                                style="margin: 1px; padding: 1px 4px 1px 4px;"
+                                onclick="this.setAttribute('selected', 'true');search('https:\/\/ink.sammlung.cc\/table\/de', '', false, false)"
+                                type="button"
+                                class="btn btn-secondary collectionButton" value="26"
+                                selected="false"
+                        >
+                            <span class="fw-medium">Werke [59]</span>
+                        </button>
+
+
+
+                        <button
+                                style="margin: 1px; padding: 1px 4px 1px 4px;"
+                                onclick="this.setAttribute('selected', 'true');search('https:\/\/ink.sammlung.cc\/table\/de', '', false, false)"
+                                type="button"
+                                class="btn btn-secondary collectionButton" value="26"
+                                selected="false"
+                        >
+                            <span class="fw-medium">Werke [59]</span>
+                        </button>
+
+
+
+                        <button
+                                style="margin: 1px; padding: 1px 4px 1px 4px;"
+                                onclick="this.setAttribute('selected', 'true');search('https:\/\/ink.sammlung.cc\/table\/de', '', false, false)"
+                                type="button"
+                                class="btn btn-secondary collectionButton" value="21"
+                                selected="false"
+                        >
+                            <span class="fw-medium">Hochschule für Musik [59]</span>
+                        </button>
+
+
+
+                        <button
+                                style="margin: 1px; padding: 1px 4px 1px 4px;"
+                                onclick="this.setAttribute('selected', 'true');search('https:\/\/ink.sammlung.cc\/table\/de', '', false, false)"
+                                type="button"
+                                class="btn btn-secondary collectionButton" value="27"
+                                selected="false"
+                        >
+                            <span class="fw-medium">Motet Cycles [59]</span>
+                        </button>
+
+
+
+                        <button
+                                style="margin: 1px; padding: 1px 4px 1px 4px;"
+                                onclick="this.setAttribute('selected', 'true');search('https:\/\/ink.sammlung.cc\/table\/de', '', false, false)"
+                                type="button"
+                                class="btn btn-secondary collectionButton" value="13"
+                                selected="false"
+                        >
+                            <span class="fw-medium">Revolving Histories [0]</span>
+                        </button>
+
+
+
+                        <button
+                                style="margin: 1px; padding: 1px 4px 1px 4px;"
+                                onclick="this.setAttribute('selected', 'true');search('https:\/\/ink.sammlung.cc\/table\/de', '', false, false)"
+                                type="button"
+                                class="btn btn-secondary collectionButton" value="2"
+                                selected="false"
+                        >
+                            <span class="fw-medium">Next Generation [0]</span>
+                        </button>
+
+
+
+                        <button
+                                style="margin: 1px; padding: 1px 4px 1px 4px;"
+                                onclick="this.setAttribute('selected', 'true');search('https:\/\/ink.sammlung.cc\/table\/de', '', false, false)"
+                                type="button"
+                                class="btn btn-secondary collectionButton" value="19"
+                                selected="false"
+                        >
+                            <span class="fw-medium">IID Arbeiten [0]</span>
+                        </button>
+
+
+
+                        <button
+                                style="margin: 1px; padding: 1px 4px 1px 4px;"
+                                onclick="this.setAttribute('selected', 'true');search('https:\/\/ink.sammlung.cc\/table\/de', '', false, false)"
+                                type="button"
+                                class="btn btn-secondary collectionButton" value="20"
+                                selected="false"
+                        >
+                            <span class="fw-medium">IID Module [0]</span>
+                        </button>
+
+
+
+                        <button
+                                style="margin: 1px; padding: 1px 4px 1px 4px;"
+                                onclick="this.setAttribute('selected', 'true');search('https:\/\/ink.sammlung.cc\/table\/de', '', false, false)"
+                                type="button"
+                                class="btn btn-secondary collectionButton" value="1"
+                                selected="false"
+                        >
+                            <span class="fw-medium">ACT Basel [0]</span>
+                        </button>
+
+
+
+                        <button
+                                style="margin: 1px; padding: 1px 4px 1px 4px;"
+                                onclick="this.setAttribute('selected', 'true');search('https:\/\/ink.sammlung.cc\/table\/de', '', false, false)"
+                                type="button"
+                                class="btn btn-secondary collectionButton" value="15"
+                                selected="false"
+                        >
+                            <span class="fw-medium">Archive des Ephemeren [0]</span>
+                        </button>
+
+
+
+                        <button
+                                style="margin: 1px; padding: 1px 4px 1px 4px;"
+                                onclick="this.setAttribute('selected', 'true');search('https:\/\/ink.sammlung.cc\/table\/de', '', false, false)"
+                                type="button"
+                                class="btn btn-secondary collectionButton" value="9"
+                                selected="false"
+                        >
+                            <span class="fw-medium">Film &#43; Design [0]</span>
+                        </button>
+
+
+
+                        <button
+                                style="margin: 1px; padding: 1px 4px 1px 4px;"
+                                onclick="this.setAttribute('selected', 'true');search('https:\/\/ink.sammlung.cc\/table\/de', '', false, false)"
+                                type="button"
+                                class="btn btn-secondary collectionButton" value="28"
+                                selected="false"
+                        >
+                            <span class="fw-medium">HSM Datenbanken [0]</span>
+                        </button>
+
+
+
+                        <button
+                                style="margin: 1px; padding: 1px 4px 1px 4px;"
+                                onclick="this.setAttribute('selected', 'true');search('https:\/\/ink.sammlung.cc\/table\/de', '', false, false)"
+                                type="button"
+                                class="btn btn-secondary collectionButton" value="25"
+                                selected="false"
+                        >
+                            <span class="fw-medium">Hyperwerk [0]</span>
+                        </button>
+
+
+
+                        <button
+                                style="margin: 1px; padding: 1px 4px 1px 4px;"
+                                onclick="this.setAttribute('selected', 'true');search('https:\/\/ink.sammlung.cc\/table\/de', '', false, false)"
+                                type="button"
+                                class="btn btn-secondary collectionButton" value="16"
+                                selected="false"
+                        >
+                            <span class="fw-medium">Interviews: Archiv Performativ  [0]</span>
+                        </button>
+
+
+
+                        <button
+                                style="margin: 1px; padding: 1px 4px 1px 4px;"
+                                onclick="this.setAttribute('selected', 'true');search('https:\/\/ink.sammlung.cc\/table\/de', '', false, false)"
+                                type="button"
+                                class="btn btn-secondary collectionButton" value="10"
+                                selected="false"
+                        >
+                            <span class="fw-medium">Performance Chronik Basel [0]</span>
+                        </button>
+
+
+
+                        <button
+                                style="margin: 1px; padding: 1px 4px 1px 4px;"
+                                onclick="this.setAttribute('selected', 'true');search('https:\/\/ink.sammlung.cc\/table\/de', '', false, false)"
+                                type="button"
+                                class="btn btn-secondary collectionButton" value="17"
+                                selected="false"
+                        >
+                            <span class="fw-medium">Perf En Bref [0]</span>
+                        </button>
+
+
+
+                        <button
+                                style="margin: 1px; padding: 1px 4px 1px 4px;"
+                                onclick="this.setAttribute('selected', 'true');search('https:\/\/ink.sammlung.cc\/table\/de', '', false, false)"
+                                type="button"
+                                class="btn btn-secondary collectionButton" value="14"
+                                selected="false"
+                        >
+                            <span class="fw-medium">Doce en Diciembre [0]</span>
+                        </button>
+
+
+
+                        <button
+                                style="margin: 1px; padding: 1px 4px 1px 4px;"
+                                onclick="this.setAttribute('selected', 'true');search('https:\/\/ink.sammlung.cc\/table\/de', '', false, false)"
+                                type="button"
+                                class="btn btn-secondary collectionButton" value="12"
+                                selected="false"
+                        >
+                            <span class="fw-medium">Together Elsewhere [0]</span>
+                        </button>
+
+
+
+                        <button
+                                style="margin: 1px; padding: 1px 4px 1px 4px;"
+                                onclick="this.setAttribute('selected', 'true');search('https:\/\/ink.sammlung.cc\/table\/de', '', false, false)"
+                                type="button"
+                                class="btn btn-secondary collectionButton" value="7"
+                                selected="false"
+                        >
+                            <span class="fw-medium">Videonetzwerke [0]</span>
+                        </button>
+
+
+
+                        <button
+                                style="margin: 1px; padding: 1px 4px 1px 4px;"
+                                onclick="this.setAttribute('selected', 'true');search('https:\/\/ink.sammlung.cc\/table\/de', '', false, false)"
+                                type="button"
+                                class="btn btn-secondary collectionButton" value="8"
+                                selected="false"
+                        >
+                            <span class="fw-medium">Video Wochen Wenkenpark [0]</span>
+                        </button>
+
+
+
+                        <button
+                                style="margin: 1px; padding: 1px 4px 1px 4px;"
+                                onclick="this.setAttribute('selected', 'true');search('https:\/\/ink.sammlung.cc\/table\/de', '', false, false)"
+                                type="button"
+                                class="btn btn-secondary collectionButton" value="5"
+                                selected="false"
+                        >
+                            <span class="fw-medium">Cultural Spaces and Design [0]</span>
+                        </button>
+
+
+
+                        <button
+                                style="margin: 1px; padding: 1px 4px 1px 4px;"
+                                onclick="this.setAttribute('selected', 'true');search('https:\/\/ink.sammlung.cc\/table\/de', '', false, false)"
+                                type="button"
+                                class="btn btn-secondary collectionButton" value="6"
+                                selected="false"
+                        >
+                            <span class="fw-medium">Memory Full [0]</span>
+                        </button>
+
+
+
+                        <button
+                                style="margin: 1px; padding: 1px 4px 1px 4px;"
+                                onclick="this.setAttribute('selected', 'true');search('https:\/\/ink.sammlung.cc\/table\/de', '', false, false)"
+                                type="button"
+                                class="btn btn-secondary collectionButton" value="23"
+                                selected="false"
+                        >
+                            <span class="fw-medium">e-Publications [0]</span>
+                        </button>
+
+
+                </div>
+            </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <li class="nav-item mb-1">
+                    <hr />
+                    <span class="fw-semibold">generic</span>
+                    <div class="d-block gap-2">
+
+
+                        <button
+                                style="margin: 1px; padding: 1px 4px 1px 4px;"
+                                onclick="this.setAttribute('selected', 'true');search('https:\/\/ink.sammlung.cc\/table\/de', '', false, false)"
+                                type="button"
+                                class="btn btn-secondary vocButton"
+                                value="voc:generic:cycle"
+                                selected="false"
+                        >
+                            cycle [59]
+                        </button>
+
+
+
+
+
+                        <button
+                                style="margin: 1px; padding: 1px 4px 1px 4px;"
+                                onclick="this.setAttribute('selected', 'true');search('https:\/\/ink.sammlung.cc\/table\/de', '', false, false)"
+                                type="button"
+                                class="btn btn-secondary vocButton"
+                                value="voc:generic:music"
+                                selected="false"
+                        >
+                            music [59]
+                        </button>
+
+
+
+                        <button
+                                style="margin: 1px; padding: 1px 4px 1px 4px;"
+                                onclick="this.setAttribute('selected', 'true');search('https:\/\/ink.sammlung.cc\/table\/de', '', false, false)"
+                                type="button"
+                                class="btn btn-secondary vocButton"
+                                value="voc:generic:renaissance"
+                                selected="false"
+                        >
+                            renaissance [59]
+                        </button>
+
+
+                    </div>
+                </li>
+
+
+    </ul>
+    </div>
+</div>
+
+<footer class="">
+    <p class="text-center">
+        <a href="https://forms.mediathek.hgk.fhnw.ch/formularubersicht.html"><i class="bi bi-file-earmark-plus"></i>Neuer Eintrag</a> |
+        <a href="https://ink.sammlung.cc/kontakt/de">Kontakt</a> |
+        <a href="https://ink.sammlung.cc/impressum/de">Impressum</a>
+    </p>
+</footer>
+
+
+
+<script src="../../static/bootstrap/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script src="../../static/js/search.js"></script>
+</body>
+</html>
