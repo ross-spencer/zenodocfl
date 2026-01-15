@@ -20,5 +20,6 @@ repos:
 exclude: |
     (?x)(
         ^testdata/|
-        ^lister/testdata
+        ^lister/testdata|
+        ^gather/testdata
     )

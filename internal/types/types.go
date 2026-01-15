@@ -54,7 +54,7 @@ type Item struct {
 	//
 	// NB. likely hasFile in RO-CRATE.
 	Media []Media `json:"media,omitempty"`
-	// Identifers associated with the record.
+	// Identifiers associated with the record.
 	Identifiers []Identifier `json:"identifiers"`
 	// Poster provides an image associated with a record. The basee
 	// record has a poster and relations often do as well.

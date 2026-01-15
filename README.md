@@ -3,7 +3,7 @@
 Convert Unibasel Media Server (INK) records to OCFL for publication on
 Zenodo.
 
-Consistes of the following apps:
+Consists of the following apps:
 
 ## Lister
 

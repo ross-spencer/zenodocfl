@@ -44,7 +44,7 @@ func TestRecords(t *testing.T) {
 		if record.Base.Title[0].Value != test.base.Title[0].Value {
 			t.Errorf("title values are incorrect")
 		}
-		// NB. more tests can be added the more invovled the data gets.
+		// NB. more tests can be added the more involved the data gets.
 	}
 }
 

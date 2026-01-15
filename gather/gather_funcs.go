@@ -15,7 +15,7 @@ func exists(path string) bool {
 		if errors.Is(err, os.ErrNotExist) {
 			return false
 		}
-		log.Println("another error has occured:", err)
+		log.Println("another error has occurred:", err)
 		return false
 	}
 	return true
@@ -57,7 +57,7 @@ func convertIdentifier(key string, value string) string {
 	case "handle":
 		return fmt.Sprintf("https://hdl.handle.net/%s", value)
 	default:
-		log.Println("unkown identifier type:", key)
+		log.Println("unknown identifier type:", key)
 	}
 	return value
 }

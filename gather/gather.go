@@ -121,7 +121,7 @@ func getTitle(title []title) (string, error) {
 	return title[0].Value, nil
 }
 
-func getDecription(notes []note) (string, error) {
+func getDescription(notes []note) (string, error) {
 	if len(notes) < 1 {
 		return "", fmt.Errorf("no notes associated with record")
 	}
@@ -153,16 +153,16 @@ func addItemMD(record inkRecord) (types.Item, error) {
 	item.Publisher = record.Base.Publisher
 	item.Poster.Name = record.Base.Poster.Name
 	item.Poster.Url = convertMediaServerURI(record.Base.Poster.Url)
-	decription, err := getDecription(record.Notes)
+	description, err := getDescription(record.Notes)
 	if err != nil {
 		log.Println("cannot retrieve description from record")
 	}
-	item.Description = decription
+	item.Description = description
 	return item, nil
 }
 
 // addItemRelationships associates relationships with the new
-// record. This is likey hasPart in RO-CRATE - TBD.
+// record. This is likely hasPart in RO-CRATE - TBD.
 func addItemRelationships(item types.Item, record inkRecord) (types.Item, error) {
 	rels := []types.Relationship{}
 	for _, value := range record.ReferencesFull {
@@ -255,7 +255,7 @@ func listJSON() []inkRecord {
 	entries, err := os.ReadDir(dataDir)
 	log.Println("items in data directory:", len(entries))
 	if err != nil {
-		log.Println("an unknown error has occured:", err)
+		log.Println("an unknown error has occurred:", err)
 	}
 	for _, entry := range entries {
 		fname := entry.Name()
