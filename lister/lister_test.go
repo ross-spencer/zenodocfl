@@ -60,14 +60,11 @@ var extractTests = []testData{
 // TestTableExtract ensures that the code we use to extract data from
 // the Unibas Katalog is extracted correctly.
 func TestTableExtract(t *testing.T) {
-
-	var err error
-	m := []types.MediathekRecord{}
 	for _, test := range extractTests {
 		testData, _ := os.Open(test.path)
 		defer testData.Close()
 		reader := bufio.NewReader(testData)
-		m, err = extractTable(reader, test.lang)
+		m, err := extractTable(reader, test.lang)
 		if err != nil {
 			t.Errorf("unexpected error in test: '%s' (%s)", test.name, err)
 		}

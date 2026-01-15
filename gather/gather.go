@@ -231,6 +231,10 @@ func makeCollection(manifest []inkRecord) types.Collection {
 			continue
 		}
 		item, err = addItemRelationships(item, record)
+		if err != nil {
+			log.Printf("problem extracting relationships: %s", err)
+			continue
+		}
 		item = addMedia(item, record)
 		item = addIdentifiers(item, record)
 		collection.Items = append(collection.Items, item)

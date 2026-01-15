@@ -86,10 +86,7 @@ func extractTable(reader *bufio.Reader, lang string) ([]types.MediathekRecord, e
 // validateSearch checks a URL and makes sure we are going to be able
 // to use it.
 func validateSearch(search string) bool {
-	if search == "" {
-		return false
-	}
-	return true
+	return search != ""
 }
 
 // makeINKURL creates a URL we can use to return INK results for

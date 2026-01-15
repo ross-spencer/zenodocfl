@@ -30,8 +30,11 @@ func processTableData(n *html.Node, m *[]types.MediathekRecord, lang string) {
 	const tdImg int = 0
 	const tdSig int = 1
 	const tdTitel int = 2
+	//lint:ignore U1000 recording information even if unused.
 	const tdYear int = 3
+	//lint:ignore U1000 recording information even if unused.
 	const tdArtist int = 4
+	//lint:ignore U1000 recording information even if unused.
 	const tdEvent int = 5
 
 	if n.Type == html.ElementNode && n.DataAtom == atom.Tr {

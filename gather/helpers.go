@@ -8,6 +8,8 @@ import (
 )
 
 // printManifest is a helpter to output JSON to stdout.
+//
+//lint:ignore U1000 this is a convenience function.
 func printManifest(manifest []inkRecord) {
 	jsonOut, err := json.Marshal(manifest)
 	if err != nil {
