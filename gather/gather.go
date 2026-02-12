@@ -30,6 +30,7 @@ import (
 var (
 	download  string
 	allowlist string
+	output    string
 	list      bool
 	vers      bool
 
@@ -45,6 +46,7 @@ var agent string = fmt.Sprintf("INK-gather/%s", version)
 func initFlags() {
 	flag.StringVar(&download, "download", "", "download items in the given manifest")
 	flag.StringVar(&allowlist, "allowlist", "", "allowlist to compare against the manifest")
+	flag.StringVar(&output, "o", "", "filename to output results to")
 	flag.BoolVar(&list, "list", false, "list records in the JSON directoru already downloaded")
 	flag.BoolVar(&vers, "version", false, "Return version")
 }
@@ -335,8 +337,10 @@ func main() {
 		fmt.Fprintln(os.Stderr, "        REQUIRED: [-download]  STRING | [-list] BOOL")
 		fmt.Fprintln(os.Stderr, "        OPTIONAL: [-allowlist] STRING")
 		fmt.Fprintln(os.Stderr, "        OPTIONAL: [-version] ")
+		fmt.Fprintln(os.Stderr, "        OPTIONAL: [-o] ")
 		fmt.Fprintln(os.Stderr, "")
-		fmt.Fprintln(os.Stderr, "Output: [STRING] {result JSON}")
+		fmt.Fprintln(os.Stderr, "Output: [FILE] {manifest JSON}")
+		fmt.Fprintln(os.Stderr, "Output: [STRING] {manifest JSON}")
 		fmt.Fprintf(os.Stderr, "Output: [STRING] {version: '%s'}\n\n", agent)
 		flag.Usage()
 		os.Exit(0)
@@ -356,7 +360,7 @@ func main() {
 	if list {
 		manifest := listJSON()
 		collection := makeCollection(manifest)
-		printCollection(collection)
+		printCollection(collection, output)
 		return
 	}
 
