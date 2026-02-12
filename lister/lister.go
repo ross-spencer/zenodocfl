@@ -51,8 +51,8 @@ const defaultLanguage string = "de"
 func initFlags() {
 	flag.StringVar(&search, "search", "", "string to search for in INK")
 	flag.IntVar(&collection, "collection", 0, "collection number to use if known")
-	flag.StringVar(&lang, "language", "de", fmt.Sprintf("language, default: '%s'", defaultLanguage))
-	flag.IntVar(&results, "results", defaultResults, fmt.Sprintf("number of results to return, default: %d]", defaultResults))
+	flag.StringVar(&lang, "language", "de", "language")
+	flag.IntVar(&results, "results", defaultResults, "number of results to return")
 	flag.BoolVar(&checklist, "checklist", false, "output a checklist")
 	flag.BoolVar(&vers, "version", false, "return version")
 }
