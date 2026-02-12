@@ -47,12 +47,13 @@ var agent string = fmt.Sprintf("INK-lister/%s", version)
 
 const defaultResults int = 10
 const defaultLanguage string = "de"
+const collectionNumber int = 0
 
 // initFlags initializes the flags we use with this app.
 func initFlags() {
 	flag.StringVar(&search, "search", "", "string to search for in INK")
-	flag.IntVar(&collection, "collection", 0, "collection number to use if known")
-	flag.StringVar(&lang, "language", "de", "language")
+	flag.IntVar(&collection, "collection", collectionNumber, "collection number to use if known")
+	flag.StringVar(&lang, "language", defaultLanguage, "language")
 	flag.IntVar(&results, "results", defaultResults, "number of results to return")
 	flag.BoolVar(&checklist, "checklist", false, "output a checklist")
 	flag.StringVar(&output, "o", "", "filename to output results to")
