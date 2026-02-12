@@ -34,6 +34,7 @@ var (
 	lang       string
 	results    int
 	checklist  bool
+	output     string
 	vers       bool
 
 	// app constants.
@@ -54,6 +55,7 @@ func initFlags() {
 	flag.StringVar(&lang, "language", "de", "language")
 	flag.IntVar(&results, "results", defaultResults, "number of results to return")
 	flag.BoolVar(&checklist, "checklist", false, "output a checklist")
+	flag.StringVar(&output, "o", "", "filename to output results to")
 	flag.BoolVar(&vers, "version", false, "return version")
 }
 
@@ -104,6 +106,53 @@ func makeINKCollectionURL(lang string, collection int, results int) string {
 	return fmt.Sprintf("%s/%s?search=&collections=%d&cursor=%s", url, lang, collection, makeResultParams(results))
 }
 
+// outputResults writes to stdout or a given output filename. If no
+// filename is given, only the manifest is written to stdout using
+// jsonl. If a filename is given a jsonl manifest is written and a
+// json formatted checklist.
+func outputResults(urlList []types.MediathekRecord, output string, checklist bool) {
+	if output == "" {
+		log.Println("output not specified, results sent to stdout (checklist unavailable)")
+		for _, item := range urlList {
+			jsonOut, err := json.Marshal(item)
+			if err != nil {
+				log.Println("cannot parse results to JSON:", err)
+				os.Exit(1)
+			}
+			fmt.Println(string(jsonOut))
+		}
+	}
+
+	listFile, err := os.Create(fmt.Sprintf("%s.manifest", output))
+	if err != nil {
+		log.Println("problem creating checklist file:", err)
+	}
+	defer listFile.Close()
+
+	for _, item := range urlList {
+		jsonOut, err := json.Marshal(item)
+		if err != nil {
+			panic("todo")
+		}
+		listFile.WriteString(string(jsonOut))
+		listFile.WriteString("\n")
+	}
+
+	if checklist {
+		cmap := make(map[int]string)
+		for idx, item := range urlList {
+			cmap[idx] = fmt.Sprintf("[%s, %s]\n", item.Title, item.Url)
+		}
+		jsonOut, _ := json.MarshalIndent(cmap, "", " ")
+		checklistFile, err := os.Create(fmt.Sprintf("%s.checklist", output))
+		if err != nil {
+			log.Println("problem creating checklist file:", err)
+		}
+		defer checklistFile.Close()
+		checklistFile.WriteString(string(jsonOut))
+	}
+}
+
 func main() {
 
 	logformatter.Set("lister", true)
@@ -150,19 +199,6 @@ func main() {
 
 	urlList, _ := extractTable(content, lang)
 
-	if checklist {
-		fmt.Print("INK Results checklist:\n\n")
-		for _, item := range urlList {
-			fmt.Println("[ ]", item.Title, ":", item.Url)
-		}
-		return
-	}
-	for _, item := range urlList {
-		jsonOut, err := json.Marshal(item)
-		if err != nil {
-			panic("todo")
-		}
-		fmt.Println(string(jsonOut))
-	}
+	outputResults(urlList, output, checklist)
 
 }
