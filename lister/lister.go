@@ -33,7 +33,7 @@ var (
 	collection int
 	lang       string
 	results    int
-	checklist  bool
+	allowlist  bool
 	output     string
 	vers       bool
 
@@ -55,7 +55,7 @@ func initFlags() {
 	flag.IntVar(&collection, "collection", collectionNumber, "collection number to use if known")
 	flag.StringVar(&lang, "language", defaultLanguage, "language")
 	flag.IntVar(&results, "results", defaultResults, "number of results to return")
-	flag.BoolVar(&checklist, "checklist", false, "output a checklist")
+	flag.BoolVar(&allowlist, "allowlist", false, "output an allowlist")
 	flag.StringVar(&output, "o", "", "filename to output results to")
 	flag.BoolVar(&vers, "version", false, "return version")
 }
@@ -110,10 +110,11 @@ func makeINKCollectionURL(lang string, collection int, results int) string {
 // outputResults writes to stdout or a given output filename. If no
 // filename is given, only the manifest is written to stdout using
 // jsonl. If a filename is given a jsonl manifest is written and a
-// json formatted checklist.
-func outputResults(urlList []types.MediathekRecord, output string, checklist bool) {
+// json formatted allowlist to provide additional checks when creating
+// the Zenodo manifest.
+func outputResults(urlList []types.MediathekRecord, output string, allowlist bool) {
 	if output == "" {
-		log.Println("output not specified, results sent to stdout (checklist unavailable)")
+		log.Println("output not specified, results sent to stdout (allowlist unavailable)")
 		for _, item := range urlList {
 			jsonOut, err := json.Marshal(item)
 			if err != nil {
@@ -126,31 +127,31 @@ func outputResults(urlList []types.MediathekRecord, output string, checklist boo
 
 	listFile, err := os.Create(fmt.Sprintf("%s.manifest", output))
 	if err != nil {
-		log.Println("problem creating checklist file:", err)
+		log.Println("problem creating allowlist file:", err)
 	}
 	defer listFile.Close()
 
 	for _, item := range urlList {
 		jsonOut, err := json.Marshal(item)
 		if err != nil {
-			panic("todo")
+			log.Println("problem marshaling JSON:", err)
 		}
 		listFile.WriteString(string(jsonOut))
 		listFile.WriteString("\n")
 	}
 
-	if checklist {
-		cmap := make(map[int]string)
+	if allowlist {
+		cmap := make(map[int][]string)
 		for idx, item := range urlList {
-			cmap[idx] = fmt.Sprintf("[%s, %s]\n", item.Title, item.Url)
+			cmap[idx] = []string{item.Title, item.Url}
 		}
 		jsonOut, _ := json.MarshalIndent(cmap, "", " ")
-		checklistFile, err := os.Create(fmt.Sprintf("%s.checklist", output))
+		allowlistFile, err := os.Create(fmt.Sprintf("%s.allowlist", output))
 		if err != nil {
-			log.Println("problem creating checklist file:", err)
+			log.Println("problem creating allowlist file:", err)
 		}
-		defer checklistFile.Close()
-		checklistFile.WriteString(string(jsonOut))
+		defer allowlistFile.Close()
+		allowlistFile.WriteString(string(jsonOut))
 	}
 }
 
@@ -169,11 +170,11 @@ func main() {
 		fmt.Fprintln(os.Stderr, "        REQUIRED: [-search]  STRING | [-collection]  INT")
 		fmt.Fprintln(os.Stderr, "        OPTIONAL: [-lang]    STRING")
 		fmt.Fprintln(os.Stderr, "        OPTIONAL: [-results] INTEGER")
-		fmt.Fprintln(os.Stderr, "        OPTIONAL: [-checklist] ")
+		fmt.Fprintln(os.Stderr, "        OPTIONAL: [-allowlist] ")
 		fmt.Fprintln(os.Stderr, "        OPTIONAL: [-version] ")
 		fmt.Fprintln(os.Stderr, "")
 		fmt.Fprintln(os.Stderr, "Output: [STRING] {result JSON}")
-		fmt.Fprintln(os.Stderr, "Output: [STRING] {result checklist}")
+		fmt.Fprintln(os.Stderr, "Output: [STRING] {result allowlist}")
 		fmt.Fprintf(os.Stderr, "Output: [STRING] {version: '%s'}\n\n", agent)
 		flag.Usage()
 		os.Exit(0)
@@ -200,6 +201,6 @@ func main() {
 
 	urlList, _ := extractTable(content, lang)
 
-	outputResults(urlList, output, checklist)
+	outputResults(urlList, output, allowlist)
 
 }

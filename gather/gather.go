@@ -19,6 +19,7 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
+	"slices"
 	"strings"
 	"time"
 
@@ -27,9 +28,10 @@ import (
 )
 
 var (
-	download string
-	list     bool
-	vers     bool
+	download  string
+	allowlist string
+	list      bool
+	vers      bool
 
 	// app constants.
 	version = "dev-0.0.0"
@@ -42,6 +44,7 @@ var agent string = fmt.Sprintf("INK-gather/%s", version)
 // initFlags initializes the flags we use with this app.
 func initFlags() {
 	flag.StringVar(&download, "download", "", "download items in the given manifest")
+	flag.StringVar(&allowlist, "allowlist", "", "allowlist to compare against the manifest")
 	flag.BoolVar(&list, "list", false, "list records in the JSON directoru already downloaded")
 	flag.BoolVar(&vers, "version", false, "Return version")
 }
@@ -60,10 +63,8 @@ func prettyJSON(content []byte) ([]byte, error) {
 	return prettyJSON, nil
 }
 
-// downloadManifest will download the data files associated with the
-// input manifest.
-func downloadManifest(dl string) []types.MediathekRecord {
-	log.Println("downloading from:", dl)
+// loadDownload loads the download into memory.
+func loadDownload(dl string, allowed []string) []types.MediathekRecord {
 	data, err := os.ReadFile(dl)
 	if err != nil {
 		log.Println("error reading lister manifest:", err)
@@ -75,10 +76,45 @@ func downloadManifest(dl string) []types.MediathekRecord {
 		if v == "" {
 			continue
 		}
-		var record types.MediathekRecord
-		json.Unmarshal([]byte(v), &record)
-		paths = append(paths, record)
+		var downloadRecords types.MediathekRecord
+		json.Unmarshal([]byte(v), &downloadRecords)
+		if !slices.Contains(allowed, downloadRecords.Url) {
+			continue
+		}
+		paths = append(paths, downloadRecords)
 	}
+	return paths
+}
+
+// loadAllowlist loads the allowlist into memory.
+func loadAllowlist(allowlist string) []string {
+	data, err := os.ReadFile(allowlist)
+	if err != nil {
+		log.Println("error reading lister allowlist:", err)
+		os.Exit(1)
+	}
+	var allowRecord map[int][]string
+	err = json.Unmarshal(data, &allowRecord)
+	if err != nil {
+		log.Println("error reading lister allowlist:", err)
+		os.Exit(1)
+	}
+	var allowed []string
+	for _, value := range allowRecord {
+		allowed = append(allowed, value[1])
+	}
+	return allowed
+}
+
+// downloadManifest will download the data files associated with the
+// input manifest.
+func downloadManifest(dl string, allowlist string) []types.MediathekRecord {
+	log.Println("downloading from:", dl)
+	allowed := []string{}
+	if allowlist != "" {
+		allowed = loadAllowlist(allowlist)
+	}
+	paths := loadDownload(dl, allowed)
 	log.Println("records to download:", len(paths))
 	return paths
 }
@@ -296,8 +332,8 @@ func main() {
 		os.Exit(0)
 	} else if flag.NFlag() < 1 {
 		fmt.Fprintln(os.Stderr, "Usage:  ")
-		fmt.Fprintln(os.Stderr, "        OPTIONAL: [-download]  STRING")
-		fmt.Fprintln(os.Stderr, "        OPTIONAL: [-list] ")
+		fmt.Fprintln(os.Stderr, "        REQUIRED: [-download]  STRING | [-list] BOOL")
+		fmt.Fprintln(os.Stderr, "        OPTIONAL: [-allowlist] STRING")
 		fmt.Fprintln(os.Stderr, "        OPTIONAL: [-version] ")
 		fmt.Fprintln(os.Stderr, "")
 		fmt.Fprintln(os.Stderr, "Output: [STRING] {result JSON}")
@@ -312,7 +348,7 @@ func main() {
 	}
 
 	if download != "" {
-		files := downloadManifest(download)
+		files := downloadManifest(download, allowlist)
 		downloadFiles(files)
 		return
 	}
@@ -325,6 +361,6 @@ func main() {
 	}
 
 	// we should never reach here.
-	log.Println("no arguments provided")
+	log.Println("not enough arguments provided")
 	os.Exit(1)
 }

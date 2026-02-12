@@ -43,3 +43,5 @@ data.json
 crater/crater
 ro-crate-metadata.json
 ro-crate-preview.html
+*.manifest
+*.allowlist
