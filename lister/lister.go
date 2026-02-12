@@ -141,7 +141,8 @@ func main() {
 	// create a client to set a URL header.
 	resp, err := http.Get(inkURL)
 	if err != nil {
-		panic("todo")
+		log.Println("problem retrieving data from INK:", err)
+		os.Exit(1)
 	}
 	defer resp.Body.Close()
 
