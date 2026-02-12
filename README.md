@@ -1,6 +1,6 @@
 # ZenodOFCL
 
-Convert Unibasel Media Server (INK) records to OCFL for publication on
+Convert FHNW INK media server records to OCFL for publication on
 Zenodo.
 
 Consists of the following apps:
