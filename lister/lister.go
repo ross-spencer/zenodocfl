@@ -29,11 +29,12 @@ import (
 )
 
 var (
-	search    string
-	lang      string
-	results   int
-	checklist bool
-	vers      bool
+	search     string
+	collection int
+	lang       string
+	results    int
+	checklist  bool
+	vers       bool
 
 	// app constants.
 	version = "dev-0.0.0"
@@ -48,23 +49,23 @@ const defaultLanguage string = "de"
 
 // initFlags initializes the flags we use with this app.
 func initFlags() {
-	flag.StringVar(&search, "search", "", "search string")
+	flag.StringVar(&search, "search", "", "string to search for in INK")
+	flag.IntVar(&collection, "collection", 0, "collection number to use if known")
 	flag.StringVar(&lang, "language", "de", fmt.Sprintf("language, default: '%s'", defaultLanguage))
 	flag.IntVar(&results, "results", defaultResults, fmt.Sprintf("number of results to return, default: %d]", defaultResults))
-	flag.BoolVar(&checklist, "checklist", false, "Output a checklist")
-	flag.BoolVar(&vers, "version", false, "Return version")
+	flag.BoolVar(&checklist, "checklist", false, "output a checklist")
+	flag.BoolVar(&vers, "version", false, "return version")
 }
 
 // makeResultParams creates a base64 set of result parameters to
 // enable download of all results in a single request.
 func makeResultParams(number int) string {
 
-	/* Example parameters encoded as JSON.
-
-	{"from":0,"size":300}
-
+	/* Example parameters encoded as JSON:
+	   {"from":0,"size":300}
 	*/
 
+	log.Printf("maximum number of results requested: %d", number)
 	s := fmt.Sprintf("{\"from\": 0, \"size\": %d}", number)
 	return base64.StdEncoding.EncodeToString([]byte(s))
 }
@@ -89,11 +90,18 @@ func validateSearch(search string) bool {
 	return search != ""
 }
 
-// makeINKURL creates a URL we can use to return INK results for
+// makeINKSearchURL creates a URL we can use to return INK results for
 // crawling.
-func makeINKURL(lang string, search string, results int) string {
+func makeINKSearchURL(lang string, search string, results int) string {
 	const url = "https://ink.sammlung.cc/table"
 	return fmt.Sprintf("%s/%s?search=%s&cursor=%s", url, lang, search, makeResultParams(results))
+}
+
+// makeINKSearchURL creates a URL we can use to return INK results for
+// crawling.
+func makeINKCollectionURL(lang string, collection int, results int) string {
+	const url = "https://ink.sammlung.cc/table"
+	return fmt.Sprintf("%s/%s?search=&collections=%d&cursor=%s", url, lang, collection, makeResultParams(results))
 }
 
 func main() {
@@ -106,9 +114,9 @@ func main() {
 	if vers {
 		fmt.Fprintf(os.Stderr, "%s (%s) commit: %s date: %s\n", agent, version, commit, date)
 		os.Exit(0)
-	} else if flag.NFlag() < 1 || !validateSearch(search) {
+	} else if flag.NFlag() < 1 || !validateSearch(search) && collection <= 0 {
 		fmt.Fprintln(os.Stderr, "Usage:  ")
-		fmt.Fprintln(os.Stderr, "        REQUIRED: [-search]  STRING")
+		fmt.Fprintln(os.Stderr, "        REQUIRED: [-search]  STRING | [-collection]  INT")
 		fmt.Fprintln(os.Stderr, "        OPTIONAL: [-lang]    STRING")
 		fmt.Fprintln(os.Stderr, "        OPTIONAL: [-results] INTEGER")
 		fmt.Fprintln(os.Stderr, "        OPTIONAL: [-checklist] ")
@@ -121,7 +129,13 @@ func main() {
 		os.Exit(0)
 	}
 
-	inkURL := makeINKURL(lang, search, results)
+	var inkURL string
+	if collection == 0 {
+		inkURL = makeINKSearchURL(lang, search, results)
+	} else {
+		inkURL = makeINKCollectionURL(lang, collection, results)
+	}
+
 	log.Printf("requesting: %s", inkURL)
 
 	// create a client to set a URL header.

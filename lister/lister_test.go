@@ -88,10 +88,19 @@ func TestTableExtract(t *testing.T) {
 	}
 }
 
-// TestMakeINKURL ensures that the INK URL is created accurately.
-func TestMakeINKURL(t *testing.T) {
+// TestMakeINKSearchURL ensures that the INK URL is created accurately.
+func TestMakeINKSearchURL(t *testing.T) {
 	expected := "https://ink.sammlung.cc/table/fr?search=motetcycle&cursor=eyJmcm9tIjogMCwgInNpemUiOiA1fQ=="
-	url := makeINKURL("fr", "motetcycle", 5)
+	url := makeINKSearchURL("fr", "motetcycle", 5)
+	if url != expected {
+		t.Errorf("url generation failing: '%s', expected: '%s'", url, expected)
+	}
+}
+
+// TestMakeINKCollectionURL ensures that the INK URL is created accurately.
+func TestMakeINKCollectionURL(t *testing.T) {
+	expected := "https://ink.sammlung.cc/table/fr?search=&collections=27&cursor=eyJmcm9tIjogMCwgInNpemUiOiA1fQ=="
+	url := makeINKCollectionURL("fr", 27, 5)
 	if url != expected {
 		t.Errorf("url generation failing: '%s', expected: '%s'", url, expected)
 	}
