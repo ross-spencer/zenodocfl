@@ -39,8 +39,8 @@ func convertMediaServerURI(url string) string {
 	if url == "" {
 		return ""
 	}
-	const oldPrefix string = "mediaserver:hsm/"
-	const newPrefix string = "https://ba14ns21403-sec1.fhnw.ch/mediasrv/hsm/"
+	const oldPrefix string = "mediaserver:"
+	const newPrefix string = "https://ba14ns21403-sec1.fhnw.ch/mediasrv/"
 	return fmt.Sprintf("%s/master", strings.Replace(url, oldPrefix, newPrefix, 1))
 }
 
