@@ -146,7 +146,7 @@ func downloadFiles(files []types.MediathekRecord) {
 		os.Remove(path)
 		err = os.WriteFile(path, prettified, 0644)
 		if err != nil {
-			log.Println("unable to write to file;", v.Signature)
+			log.Println("unable to write to file;", path)
 		}
 		time.Sleep(1 * time.Second)
 	}
@@ -275,6 +275,7 @@ func makeCollection(manifest []inkRecord) types.Collection {
 		}
 		item = addMedia(item, record)
 		item = addIdentifiers(item, record)
+		item.Source = record.Source
 		collection.Items = append(collection.Items, item)
 	}
 
@@ -311,12 +312,13 @@ func listJSON() []inkRecord {
 		}
 		filePath := fmt.Sprintf("%s%c%s", dataDir, os.PathSeparator, fname)
 		log.Println("processing;", filePath)
-		record, err := readJSON(filePath)
+		record, data, err := readJSON(filePath)
 		if err != nil {
 			log.Println("error processing data:", err)
 			continue
 		}
 		record.FileName = fname
+		record.Source = data
 		manifest = append(manifest, record)
 	}
 	return manifest

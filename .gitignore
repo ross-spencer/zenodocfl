@@ -45,3 +45,7 @@ ro-crate-metadata.json
 ro-crate-preview.html
 *.manifest
 *.allowlist
+*.collection
+crate-*
+ro-crate-metadata*
+output/

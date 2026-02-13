@@ -70,4 +70,6 @@ type inkRecord struct {
 	Extra []extra `json:"extra"`
 	// Notes contains information like Description.
 	Notes []note `json:"notes"`
+	// Source data used to create this record.
+	Source string `json:"source"`
 }

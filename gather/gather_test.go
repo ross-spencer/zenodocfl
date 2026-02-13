@@ -40,7 +40,7 @@ var recordTests = []reltest{
 
 func TestRecords(t *testing.T) {
 	for _, test := range recordTests {
-		record, _ := readJSON(test.filename)
+		record, _, _ := readJSON(test.filename)
 		if record.Base.Title[0].Value != test.base.Title[0].Value {
 			t.Errorf("title values are incorrect")
 		}

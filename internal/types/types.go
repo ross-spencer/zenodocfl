@@ -61,6 +61,8 @@ type Item struct {
 	Poster Poster `json:"poster"`
 	// Description describes the record.
 	Description string `json:"description,omitempty"`
+	// Source data used to create this record.
+	Source string `json:"source"`
 }
 
 type Relationship struct {

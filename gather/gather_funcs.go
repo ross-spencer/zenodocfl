@@ -23,14 +23,14 @@ func exists(path string) bool {
 
 // readJSON from a file and return a data structure that can be used
 // throughout the gather process.
-func readJSON(filename string) (inkRecord, error) {
+func readJSON(filename string) (inkRecord, string, error) {
 	data, err := os.ReadFile(filename)
 	if err != nil {
-		return inkRecord{}, err
+		return inkRecord{}, "", err
 	}
 	var record inkRecord
 	json.Unmarshal(data, &record)
-	return record, nil
+	return record, string(data), nil
 }
 
 // convertMediaServerURI converts a media server URI to a functioning
