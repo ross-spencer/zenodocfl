@@ -33,6 +33,7 @@ var (
 	output    string
 	list      bool
 	vers      bool
+	debug     bool
 
 	// app constants.
 	version = "dev-0.0.0"
@@ -48,7 +49,8 @@ func initFlags() {
 	flag.StringVar(&allowlist, "allowlist", "", "allowlist to compare against the manifest")
 	flag.StringVar(&output, "o", "", "filename to output results to")
 	flag.BoolVar(&list, "list", false, "list records in the JSON directoru already downloaded")
-	flag.BoolVar(&vers, "version", false, "Return version")
+	flag.BoolVar(&debug, "debug", false, "debug logging")
+	flag.BoolVar(&vers, "version", false, "return version")
 }
 
 // prettyJSON outputs prettified JSON.
@@ -66,7 +68,7 @@ func prettyJSON(content []byte) ([]byte, error) {
 }
 
 // loadDownload loads the download into memory.
-func loadDownload(dl string, allowed []string) []types.MediathekRecord {
+func loadDownload(dl string, allowed []string, useAllowList bool) []types.MediathekRecord {
 	data, err := os.ReadFile(dl)
 	if err != nil {
 		log.Println("error reading lister manifest:", err)
@@ -80,7 +82,8 @@ func loadDownload(dl string, allowed []string) []types.MediathekRecord {
 		}
 		var downloadRecords types.MediathekRecord
 		json.Unmarshal([]byte(v), &downloadRecords)
-		if !slices.Contains(allowed, downloadRecords.Url) {
+		if useAllowList && !slices.Contains(allowed, downloadRecords.Url) {
+			log.Println("not on allowlist:", downloadRecords.Url)
 			continue
 		}
 		paths = append(paths, downloadRecords)
@@ -113,10 +116,14 @@ func loadAllowlist(allowlist string) []string {
 func downloadManifest(dl string, allowlist string) []types.MediathekRecord {
 	log.Println("downloading from:", dl)
 	allowed := []string{}
+	useAllowList := false
 	if allowlist != "" {
 		allowed = loadAllowlist(allowlist)
+		if len(allowed) > 0 {
+			useAllowList = true
+		}
 	}
-	paths := loadDownload(dl, allowed)
+	paths := loadDownload(dl, allowed, useAllowList)
 	log.Println("records to download:", len(paths))
 	return paths
 }
@@ -193,7 +200,7 @@ func addItemMD(record inkRecord) (types.Item, error) {
 	item.Poster.Url = convertMediaServerURI(record.Base.Poster.Url)
 	description, err := getDescription(record.Notes)
 	if err != nil {
-		log.Println("cannot retrieve description from record")
+		log.Printf("cannot retrieve description from record: %s", record.FileName)
 	}
 	item.Description = description
 	return item, nil
@@ -311,7 +318,9 @@ func listJSON() []inkRecord {
 			continue
 		}
 		filePath := fmt.Sprintf("%s%c%s", dataDir, os.PathSeparator, fname)
-		log.Println("processing;", filePath)
+		if debug {
+			log.Println("processing:", filePath)
+		}
 		record, data, err := readJSON(filePath)
 		if err != nil {
 			log.Println("error processing data:", err)
