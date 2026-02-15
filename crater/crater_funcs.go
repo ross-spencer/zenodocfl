@@ -122,6 +122,20 @@ type userData struct {
 	parts []string
 }
 
+func (userData userData) String() string {
+	return fmt.Sprintf("%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n",
+		userData.Identifier,
+		userData.Description,
+		userData.Name,
+		userData.RecordType,
+		userData.DatePublished,
+		userData.License,
+		userData.Keywords,
+		userData.Publisher,
+		userData.Url,
+	)
+}
+
 func getKeywords(values string) []string {
 	keywords := []string{}
 	tmpKeys := strings.Split(values, ",")

@@ -91,7 +91,6 @@ func getMeta(meta string) userData {
 		os.Exit(1)
 	}
 	return metaData
-
 }
 
 // makeCrrate creates a RO-CRATE from the given collection manifest.
@@ -102,13 +101,10 @@ func getMeta(meta string) userData {
 	MediaURLs  []string `json:"media_urls"`     <-- download to media.
 	PosterURLs []string `json:"poster_urls"`    <-- download to poster.
 */
-func makeCrate(manifest string, meta string, dryrun bool) {
+func makeCrate(manifest string, userData userData, dryrun bool) {
 
 	// read the data.
 	collection := readManifest(manifest)
-
-	// read metadata.
-	userData := getMeta(meta)
 
 	// create global object.
 	crateDir := filepath.Join("output", fmt.Sprintf(
@@ -160,6 +156,66 @@ func makeCrate(manifest string, meta string, dryrun bool) {
 
 }
 
+type fields struct {
+	name     string
+	variable *string
+}
+
+// handleInput takes the user input needed to populate the metadata
+// in the RO-CRATE.
+func handleInput() userData {
+
+	var userData userData
+
+	const licenseDefault string = "https://creativecommons.org/publicdomain/zero/1.0/"
+
+	fields := []fields{
+		{
+			name:     "identifier for the ro-crate",
+			variable: &userData.Identifier,
+		},
+		{
+			name:     "description for the ro-crate",
+			variable: &userData.Description,
+		},
+		{
+			name:     "title for the ro-crate",
+			variable: &userData.Name,
+		},
+		{
+			name:     "record type for the ro-crate",
+			variable: &userData.RecordType,
+		},
+		{
+			name:     "date published",
+			variable: &userData.DatePublished,
+		},
+		{
+			name:     "license for the ro-crate (defailt: https://creativecommons.org/publicdomain/zero/1.0/)",
+			variable: &userData.License,
+		},
+		{
+			name:     "keywords for the ro-crate (separated by comma: ',')",
+			variable: &userData.Keywords,
+		},
+		{
+			name:     "url for the collection",
+			variable: &userData.Url,
+		},
+	}
+
+	for _, field := range fields {
+		fmt.Println(field.name)
+		fmt.Scanf("%s", field.variable)
+	}
+
+	if userData.License == "" {
+		userData.License = licenseDefault
+	}
+
+	return userData
+}
+
 func main() {
 
 	logformatter.Set("crater", true)
@@ -189,8 +245,19 @@ func main() {
 		return
 	}
 
+	var userData userData
+	if meta != "" {
+		// read metadata.
+		userData = getMeta(meta)
+	} else {
+		log.Println("reading metadata from stdin:")
+		userData = handleInput()
+	}
+
+	log.Println("user metadata:", userData)
+
 	if crate != "" {
-		makeCrate(crate, meta, dryrun)
+		makeCrate(crate, userData, dryrun)
 		os.Exit(0)
 	}
 
