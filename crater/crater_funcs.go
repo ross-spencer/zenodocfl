@@ -74,6 +74,7 @@ func moveRecords(records []types.Item, path string, partPrefix string) []string 
 
 // makeFIlename returns a filename for the URL we're downloading.
 func makeFilename(url string) string {
+	url = strings.Replace(url, "$$poster/master", "", 1)
 	url = strings.Replace(url, "/master", "", 1)
 	split := strings.Split(url, "/")
 	return split[len(split)-1]
@@ -86,7 +87,10 @@ func downloadFile(urls []string, path string, partPrefix string, dryrun bool) []
 	for _, url := range urls {
 		fileName := makeFilename(url)
 		filePath := filepath.Join(path, fileName)
-		log.Println(filePath)
+		if debug {
+			log.Println(filePath)
+		}
+
 		if !dryrun {
 			err := downloadCrateObj(url, filePath)
 			if err != nil {

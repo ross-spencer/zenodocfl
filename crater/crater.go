@@ -40,6 +40,7 @@ var (
 	additional string
 	meta       string
 	dryrun     bool
+	debug      bool
 	vers       bool
 
 	// app constants.
@@ -56,7 +57,8 @@ func initFlags() {
 	flag.StringVar(&meta, "meta", "", "metadata for the RO-CRATE")
 	flag.StringVar(&additional, "additional", "", "change name of ancillary directory")
 	flag.BoolVar(&dryrun, "dry-run", false, "peform a dry-run (dont download files)")
-	flag.BoolVar(&vers, "version", false, "Return version")
+	flag.BoolVar(&debug, "debug", false, "debug logging")
+	flag.BoolVar(&vers, "version", false, "return version")
 }
 
 // timestamp is a utility function returning a UNIX timestamp for use
@@ -118,7 +120,13 @@ func makeCrate(manifest string, meta string, dryrun bool) {
 	recordsDir := filepath.Join(crateDir, "records")
 	mediaDir := filepath.Join(crateDir, "media")
 	posterDir := filepath.Join(crateDir, "posters")
-	anciliaryDir := filepath.Join(crateDir, "anciliary")
+
+	var anciliaryDir string
+	if additional != "" {
+		anciliaryDir = filepath.Join(crateDir, additional)
+	} else {
+		anciliaryDir = filepath.Join(crateDir, "anciliary")
+	}
 
 	// create directory layout.
 	createCrateDir(crateDir)
