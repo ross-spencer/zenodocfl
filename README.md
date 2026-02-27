@@ -145,3 +145,16 @@ output/
     │   └── zotero2-2641719.VF2JR42N.json
     └── ro-crate-metadata.json
 ```
+
+## Preview
+
+Preview is best done via the package [ro-crate-html][preview-1].
+
+Two helper commands exist in the `justfile` to help with its use:
+
+```just
+    install-preview      # install ro-crate preview
+    preview-rocrate dir  # preview ro-crate
+```
+
+[preview-1]: https://www.npmjs.com/package/ro-crate-html
