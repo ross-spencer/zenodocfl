@@ -49,3 +49,6 @@ ro-crate-preview.html
 crate-*
 ro-crate-metadata*
 output/
+*/venv/*
+*.zip
+*-draft/
