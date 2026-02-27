@@ -67,7 +67,7 @@ func moveRecords(records []types.Item, path string, partPrefix string) []string 
 		if err != nil {
 			log.Println("unable to write to file;", err)
 		}
-		parts = append(parts, fmt.Sprintf("./%s/%s", partPrefix, item.File))
+		parts = append(parts, fmt.Sprintf("%s/%s", partPrefix, item.File))
 	}
 	return parts
 }
@@ -98,14 +98,15 @@ func downloadFile(urls []string, path string, partPrefix string, dryrun bool) []
 				os.Exit(1)
 			}
 		}
-		parts = append(parts, fmt.Sprintf("./%s/%s", partPrefix, fileName))
+		parts = append(parts, fmt.Sprintf("%s/%s", partPrefix, fileName))
 	}
 	return parts
 }
 
 const crateName string = "ro-crate-metadata.json"
 const creativeWork string = "CreativeWork"
-const rocrateContext string = "https://w3id.org/ro/crate/1.2/context"
+const rocrateContext string = "https://w3id.org/ro/crate/1.1/context"
+const rocrateConform string = "https://w3id.org/ro/crate/1.1"
 
 type userData struct {
 	Identifier    string `json:"identifier"`
@@ -116,6 +117,7 @@ type userData struct {
 	License       string `json:"license"`
 	Keywords      string `json:"keywords"`
 	Publisher     string `json:"publisher"`
+	PublisherName string `json:"publisherName"`
 	// we might not always have a canonical url.
 	Url string `json:"url"`
 	// added automatically.
@@ -123,7 +125,7 @@ type userData struct {
 }
 
 func (userData userData) String() string {
-	return fmt.Sprintf("%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n",
+	return fmt.Sprintf("%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n",
 		userData.Identifier,
 		userData.Description,
 		userData.Name,
@@ -132,6 +134,7 @@ func (userData userData) String() string {
 		userData.License,
 		userData.Keywords,
 		userData.Publisher,
+		userData.PublisherName,
 		userData.Url,
 	)
 }
@@ -147,14 +150,20 @@ func getKeywords(values string) []string {
 
 // makeCrateObj creates a RO-CRATE JSON object.
 func makeCrateObj(userData userData) rocrate {
+
+	const rootID string = "./"
+	const orgType string = "Organization"
+
 	crate := rocrate{}
 	crate.Context = rocrateContext
-	meta := graph{}
+	meta := root{}
 	meta.ID = crateName
 	meta.Identifier = crateName
 	meta.Type = creativeWork
-	meta.About = idPointer{userData.Identifier}
-	obj := graph{}
+	meta.About = idPointer{rootID}
+	meta.ConformsTo = idPointer{rocrateConform}
+	obj := files{}
+	obj.ID = rootID
 	obj.Identifier = userData.Identifier
 	obj.Type = userData.RecordType
 	obj.Name = userData.Name
@@ -169,5 +178,10 @@ func makeCrateObj(userData userData) rocrate {
 	}
 	crate.Graph = append(crate.Graph, meta)
 	crate.Graph = append(crate.Graph, obj)
+	pub := org{}
+	pub.Name = userData.PublisherName
+	pub.ID = userData.Publisher
+	pub.Type = orgType
+	crate.Graph = append(crate.Graph, pub)
 	return crate
 }

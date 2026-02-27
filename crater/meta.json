@@ -1,11 +1,12 @@
 {
-  "identifier": "FHNW-01KHBM9PSRCH0KM7FGXSFCV5V8",
+  "identifier": "FHNW-01KHBM9PSRCH0KM7FGXSFCV5V800000",
   "description": "Motet Cycles Research",
   "name": "Motet Cycles",
   "type": "Dataset",
   "data_published": "2018",
   "publisher": "https://ror.org/04mq2g308",
+  "publisherName": "FHNW University of Applied Sciences and Arts",
   "license": "https://creativecommons.org/publicdomain/zero/1.0/",
-  "keywords": "renaissance, music, motet",
+  "keywords": "renaissance, music, motet, motet-cycles",
   "url": "https://ink.sammlung.cc/detail/motetcycles-research/"
 }

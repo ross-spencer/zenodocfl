@@ -113,6 +113,7 @@ func makeCrate(manifest string, userData userData, dryrun bool) {
 		timestamp(),
 	),
 	)
+	log.Printf("output dir: %s", crateDir)
 	recordsDir := filepath.Join(crateDir, "records")
 	mediaDir := filepath.Join(crateDir, "media")
 	posterDir := filepath.Join(crateDir, "posters")

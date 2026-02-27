@@ -51,3 +51,8 @@ lister-records:
 # Motet example
 lister-example-check:
  ./lister/lister -search motetcycle -results 300 -checklist
+
+# Reset crate output
+reset-output:
+ rm -r {{`pwd`}}/crater/output
+ git checkout {{`pwd`}}/crater/output
