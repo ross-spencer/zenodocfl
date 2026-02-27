@@ -51,7 +51,7 @@ def check_paths_exist(path: str) -> bool:
     return True
 
 
-def validate(path: str, check_paths: bool = False) -> bool:
+def validate(path: str, level: models.Severity, check_paths: bool = False) -> bool:
     """Validate the given path."""
 
     path = check_path(path)
@@ -110,8 +110,28 @@ def main():
         action="store_true",
     )
 
+    parser.add_argument(
+        "--level",
+        "-l",
+        help="check file paths exist",
+        required=False,
+        default="REQUIRED",
+        type=str,
+    )
+
     args = parser.parse_args()
-    sys.exit(validate(args.path, args.check_paths))
+
+    level = models.Severity.REQUIRED
+    try:
+        level = levels = {
+            "OPTIONAL": models.Severity.OPTIONAL,
+            "RECOMMENDED": models.Severity.OPTIONAL,
+            "REQUIRED": models.Severity.REQUIRED,
+        }[args.level.upper()]
+    except KeyError:
+        pass
+
+    sys.exit(validate(args.path, level, args.check_paths))
 
 
 if __name__ == "__main__":
