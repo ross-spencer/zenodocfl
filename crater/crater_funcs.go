@@ -52,6 +52,8 @@ func downloadCrateObj(url string, path string) error {
 // createCrateObj handles the creation of a RO-Crate object based on
 // the information provided by the user.
 func createCrateObj(path string, data string) {
+	log.Println("metadata path:", path)
+	log.Printf("preview with: `rochtml %s` (if installed)", path)
 	err := os.WriteFile(path, []byte(fmt.Sprintf("%s\n", data)), 0755)
 	if err != nil {
 		log.Println("unable to write to file;", err)

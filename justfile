@@ -56,3 +56,16 @@ lister-example-check:
 reset-output:
  rm -r {{`pwd`}}/crater/output
  git checkout {{`pwd`}}/crater/output
+
+# dry-run crater
+[working-directory: "./crater"]
+crated:
+ ./crater -crate res.collection -meta meta.json -dry-run
+
+# install ro-crate preview
+install-preview:
+ npm install ro-crate-html
+
+# preview ro-crate
+preview-rocrate dir:
+ rochtml {{dir}}
