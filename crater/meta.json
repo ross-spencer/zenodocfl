@@ -1,8 +1,8 @@
 {
   "identifier": "FHNW-01KHBM9PSRCH0KM7FGXSFCV5V800000",
-  "description": "Motet Cycles Research",
-  "name": "Motet Cycles",
   "type": "Dataset",
+  "name": "Motet Cycles",
+  "description": "Motet Cycles Research",
   "data_published": "2018",
   "publisher": "https://ror.org/04mq2g308",
   "publisherName": "FHNW University of Applied Sciences and Arts",

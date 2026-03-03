@@ -76,9 +76,9 @@ This can be provided to `crater` to complete the RO-CRATE generation process.
 ```json
 {
   "identifier": "FHNW-01KHBM9PSRCH0KM7FGXSFCV5V8",
-  "description": "Motet Cycles Research",
-  "name": "Motet Cycles",
   "type": "Dataset",
+  "name": "Motet Cycles",
+  "description": "Motet Cycles Research",
   "data_published": "2018",
   "publisher": "https://ror.org/04mq2g308",
   "license": "https://creativecommons.org/publicdomain/zero/1.0/",
