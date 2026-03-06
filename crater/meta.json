@@ -1,11 +1,17 @@
 {
-  "identifier": "FHNW-01KHBM9PSRCH0KM7FGXSFCV5V800000",
+  "identifier": "FHNW-01KHBM9PSRCH0KM7FGXSFCV5V8",
   "type": "Dataset",
   "name": "Motet Cycles",
-  "description": "Motet Cycles Research",
-  "data_published": "2018",
-  "publisher": "https://ror.org/04mq2g308",
-  "publisherName": "FHNW University of Applied Sciences and Arts",
+  "description": "The Motet Cycles project is a digital research project of the Schola Cantorum Basiliensis, University of Applied Sciences and Arts Northwestern Switzerland (FHNW). It aims to provide a comprehensive overview of the motet cycles from the 16th century, including their musical and textual content, as well as their historical context.",
+  "publisher": [
+    {
+        "publisher_identifier": "https://ror.org/04mq2g308",
+        "publisher_name": "FHNW University of Applied Sciences and Arts"
+    },
+    {
+        "publisher_name": "Institute Experimental Design and Media Cultures (IXDM)"
+    }
+  ],
   "license": "https://creativecommons.org/publicdomain/zero/1.0/",
   "keywords": "renaissance, music, motet, motet-cycles",
   "url": "https://ink.sammlung.cc/detail/motetcycles-research/"

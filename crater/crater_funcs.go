@@ -5,12 +5,17 @@ import (
 	"fmt"
 	"io"
 	"log"
+	"math/rand"
 	"net/http"
 	"os"
 	"path/filepath"
 	"strings"
+	"time"
 
 	"github.com/ross-spencer/zenodocfl/internal/types"
+
+	nanoid "github.com/matoous/go-nanoid/v2"
+	ulid "github.com/oklog/ulid/v2"
 )
 
 func readManifest(manifest string) types.Collection {
@@ -110,18 +115,25 @@ const creativeWork string = "CreativeWork"
 const rocrateContext string = "https://w3id.org/ro/crate/1.1/context"
 const rocrateConform string = "https://w3id.org/ro/crate/1.1"
 
+type publisher struct {
+	PublisherIdentifier string `json:"publisher_identifier"`
+	PublisherName       string `json:"publisher_name"`
+}
+
+func (publisher publisher) String() string {
+	return fmt.Sprintf("  %s\n  %s", publisher.PublisherIdentifier, publisher.PublisherName)
+}
+
 // metaJSON is our user-facing metadata summary making it easier to
 // include RO-CRATE metadata.
 type metaJSON struct {
-	Identifier    string `json:"identifier"`
-	Description   string `json:"description"`
-	Name          string `json:"name"`
-	RecordType    string `json:"type"`
-	DatePublished string `json:"data_published"`
-	License       string `json:"license"`
-	Keywords      string `json:"keywords"`
-	Publisher     string `json:"publisher"`
-	PublisherName string `json:"publisherName"`
+	IDPrefix    string      `json:"identifier_prefix"`
+	Description string      `json:"description"`
+	Name        string      `json:"name"`
+	RecordType  string      `json:"type"`
+	License     string      `json:"license"`
+	Keywords    string      `json:"keywords"`
+	Publisher   []publisher `json:"publisher"`
 	// we might not always have a canonical url.
 	Url string `json:"url"`
 	// added automatically.
@@ -129,16 +141,14 @@ type metaJSON struct {
 }
 
 func (metaJSON metaJSON) String() string {
-	return fmt.Sprintf("%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n",
-		metaJSON.Identifier,
+	return fmt.Sprintf("%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n",
+		metaJSON.IDPrefix,
 		metaJSON.Description,
 		metaJSON.Name,
 		metaJSON.RecordType,
-		metaJSON.DatePublished,
 		metaJSON.License,
 		metaJSON.Keywords,
 		metaJSON.Publisher,
-		metaJSON.PublisherName,
 		metaJSON.Url,
 	)
 }
@@ -152,11 +162,52 @@ func getKeywords(values string) []string {
 	return keywords
 }
 
+func makeULID(prefix string) string {
+	entropy := rand.New(rand.NewSource(time.Now().UnixNano()))
+	ms := ulid.Timestamp(time.Now())
+	id, _ := ulid.New(ms, entropy)
+	return fmt.Sprintf("%s-%s", prefix, id)
+}
+
+func makePubID() string {
+	id, _ := nanoid.New()
+	return fmt.Sprintf("_:%s", id[:6])
+}
+
+func makePublishedDate() string {
+	current_time := time.Now().UTC()
+	return current_time.Format("2006-01-02")
+}
+
+// makePublishers handle an array of publishing information which
+// is a moderately complicated process.
+func makePublisher(metaJSON metaJSON) ([]idPointer, []org) {
+
+	const orgType string = "Organization"
+
+	var ids []idPointer
+	var orgs []org
+
+	for _, v := range metaJSON.Publisher {
+		pub := org{}
+		pub.Name = v.PublisherName
+		if v.PublisherIdentifier == "" {
+			pub.ID = makePubID()
+		} else {
+			pub.ID = v.PublisherIdentifier
+			pub.Type = orgType
+		}
+		ids = append(ids, idPointer{pub.ID})
+		orgs = append(orgs, pub)
+	}
+
+	return ids, orgs
+}
+
 // makeCrateObj creates a RO-CRATE JSON object.
 func makeCrateObj(metaJSON metaJSON) rocrate {
 
 	const rootID string = "./"
-	const orgType string = "Organization"
 
 	crate := rocrate{}
 	crate.Context = rocrateContext
@@ -168,24 +219,23 @@ func makeCrateObj(metaJSON metaJSON) rocrate {
 	meta.ConformsTo = idPointer{rocrateConform}
 	obj := files{}
 	obj.ID = rootID
-	obj.Identifier = metaJSON.Identifier
+	obj.Identifier = makeULID(metaJSON.IDPrefix)
 	obj.Type = metaJSON.RecordType
 	obj.Name = metaJSON.Name
 	obj.Description = metaJSON.Description
 	obj.License = metaJSON.License
-	obj.DatePublished = metaJSON.DatePublished
-	obj.Publisher = idPointer{metaJSON.Publisher}
+	obj.DatePublished = makePublishedDate()
 	obj.Keywords = getKeywords(metaJSON.Keywords)
 	obj.ContentURL = metaJSON.Url
 	for _, item := range metaJSON.parts {
 		obj.HasPart = append(obj.HasPart, idPointer{item})
 	}
+	pubIDs, pubOrgs := makePublisher(metaJSON)
+	obj.Publisher = pubIDs
 	crate.Graph = append(crate.Graph, meta)
 	crate.Graph = append(crate.Graph, obj)
-	pub := org{}
-	pub.Name = metaJSON.PublisherName
-	pub.ID = metaJSON.Publisher
-	pub.Type = orgType
-	crate.Graph = append(crate.Graph, pub)
+	for _, org := range pubOrgs {
+		crate.Graph = append(crate.Graph, org)
+	}
 	return crate
 }

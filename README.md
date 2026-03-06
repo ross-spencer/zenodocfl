@@ -9,7 +9,7 @@ Consists of the following apps:
 
 Given a search term list records for appraisal.
 
-### Allowlist
+### Lister: Allowlist
 
 Lister's allowlist function provides finer grained ability to select the
 records which will eventually be downloaded and added to Zenodo.
@@ -19,7 +19,7 @@ records which will eventually be downloaded and added to Zenodo.
 Gather a list of ALL records and items based on the appraised selection.
 Provides deduplication and a further check for appraisal.
 
-### Allowlist
+### Gather: Allowlist
 
 Gather accepts a further allowlist which lists specifically the records that
 need to be downloaded for Zenodo and a further cross-check will be done against
@@ -33,6 +33,8 @@ of the crate data.
 ## Example usage
 
 Users of the ZenodOCFL workflow need to follow a basic workflow as follows:
+
+<!--markdownlint-disable MD029-->
 
 1. Search by string `-search` or collection ID `-collection` if known, e.g.
 
@@ -73,23 +75,57 @@ This can be provided to `crater` to complete the RO-CRATE generation process.
 
 6. Create a metadata excerpt to be added to the RO-CRATE:
 
+<!--markdownlint-disable MD013-->
+
 ```json
 {
   "identifier": "FHNW-01KHBM9PSRCH0KM7FGXSFCV5V8",
   "type": "Dataset",
   "name": "Motet Cycles",
-  "description": "Motet Cycles Research",
-  "data_published": "2018",
-  "publisher": "https://ror.org/04mq2g308",
+  "description": "The Motet Cycles project is a digital research project of the Schola Cantorum Basiliensis, University of Applied Sciences and Arts Northwestern Switzerland (FHNW). It aims to provide a comprehensive overview of the motet cycles from the 16th century, including their musical and textual content, as well as their historical context.",
+  "publisher": [
+    {
+        "publisher_identifier": "https://ror.org/04mq2g308",
+        "publisher_name": "FHNW University of Applied Sciences and Arts"
+    },
+    {
+        "publisher_name": "Institute Experimental Design and Media Cultures (IXDM)"
+    }
+  ],
   "license": "https://creativecommons.org/publicdomain/zero/1.0/",
-  "keywords": "renaissance, music, motet",
+  "keywords": "renaissance, music, motet, motet-cycles",
   "url": "https://ink.sammlung.cc/detail/motetcycles-research/"
 }
+
 ```
+
+<!--markdownlint-enable MD013-->
 
 > NB. Publisher should be provided by [ror.org][ror-1] if possible.
 
 [ror-1]: https://ror.org/
+
+### Meta template
+
+A template JSON file looks as follows.
+
+```json
+{
+  "identifier": "",
+  "type": "",
+  "name": "",
+  "description": "",
+  "publisher": [
+    {
+        "publisher_identifier": "",
+        "publisher_name": ""
+    }
+  ],
+  "license": "",
+  "keywords": "",
+  "url": ""
+}
+```
 
 5. Create RO-CRATE using the command line:
 

@@ -157,7 +157,7 @@ func makeCrate(manifest string, metaJSON metaJSON, dryrun bool) {
 
 }
 
-type fields struct {
+type inputFields struct {
 	name     string
 	variable *string
 }
@@ -170,10 +170,10 @@ func handleInput() metaJSON {
 
 	const licenseDefault string = "https://creativecommons.org/publicdomain/zero/1.0/"
 
-	fields := []fields{
+	fields := []inputFields{
 		{
-			name:     "identifier for the ro-crate",
-			variable: &metaJSON.Identifier,
+			name:     "prefix for the ro-crate identifier, e.g. <prefix>-<uid>, e.g. FHNW-1234",
+			variable: &metaJSON.IDPrefix,
 		},
 		{
 			name:     "description for the ro-crate",
@@ -186,10 +186,6 @@ func handleInput() metaJSON {
 		{
 			name:     "record type for the ro-crate",
 			variable: &metaJSON.RecordType,
-		},
-		{
-			name:     "date published",
-			variable: &metaJSON.DatePublished,
 		},
 		{
 			name:     "license for the ro-crate (default: https://creativecommons.org/publicdomain/zero/1.0/)",
@@ -209,6 +205,45 @@ func handleInput() metaJSON {
 		fmt.Println(field.name)
 		fmt.Scanf("%s", field.variable)
 	}
+
+	var pub publisher
+	var pubs []publisher
+
+	var orgName string = "organization name"
+
+	pubFields := []inputFields{
+		{
+			name:     orgName,
+			variable: &pub.PublisherName,
+		},
+		{
+			name:     "organization uri (leave blank if it is unknown)",
+			variable: &pub.PublisherIdentifier,
+		},
+	}
+
+	for {
+		done := false
+		for _, field := range pubFields {
+			fmt.Println(field.name)
+			fmt.Scanf("%s", field.variable)
+			if field.name == orgName {
+				if *field.variable == "" {
+					done = true
+					break
+				}
+			}
+			pubs = append(pubs, pub)
+			field.name = ""
+			*field.variable = ""
+		}
+		if !done {
+			continue
+		}
+		break
+	}
+
+	metaJSON.Publisher = pubs
 
 	if metaJSON.License == "" {
 		metaJSON.License = licenseDefault

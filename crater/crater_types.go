@@ -28,7 +28,7 @@ type files struct {
 	Identifier    string      `json:"identifier,omitempty"`
 	Keywords      []string    `json:"keywords,omitempty"`
 	License       string      `json:"license,omitempty"`
-	Publisher     idPointer   `json:"publisher,omitempty"`
+	Publisher     []idPointer `json:"publisher,omitempty"`
 }
 
 type org struct {
