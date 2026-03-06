@@ -79,7 +79,7 @@ This can be provided to `crater` to complete the RO-CRATE generation process.
 
 ```json
 {
-  "identifier": "FHNW-01KHBM9PSRCH0KM7FGXSFCV5V8",
+  "identifier_prefix": "FHNW",
   "type": "Dataset",
   "name": "Motet Cycles",
   "description": "The Motet Cycles project is a digital research project of the Schola Cantorum Basiliensis, University of Applied Sciences and Arts Northwestern Switzerland (FHNW). It aims to provide a comprehensive overview of the motet cycles from the 16th century, including their musical and textual content, as well as their historical context.",
@@ -111,7 +111,7 @@ A template JSON file looks as follows.
 
 ```json
 {
-  "identifier": "",
+  "identifier_prefix": "",
   "type": "",
   "name": "",
   "description": "",

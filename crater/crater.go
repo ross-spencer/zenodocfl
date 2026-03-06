@@ -172,7 +172,7 @@ func handleInput() metaJSON {
 
 	fields := []inputFields{
 		{
-			name:     "prefix for the ro-crate identifier, e.g. <prefix>-<uid>, e.g. FHNW-1234",
+			name:     "prefix `<prefix>` for the ro-crate identifier, e.g. <prefix>-1234, e.g. FHNW-1234",
 			variable: &metaJSON.IDPrefix,
 		},
 		{
