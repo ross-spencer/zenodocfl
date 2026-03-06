@@ -60,7 +60,7 @@ func createCrateObj(path string, data string) {
 	}
 }
 
-// moveRecords addds the collection records to the RO-CRATE.
+// moveRecords adds the collection records to the RO-CRATE.
 func moveRecords(records []types.Item, path string, partPrefix string) []string {
 	parts := []string{}
 	for _, item := range records {

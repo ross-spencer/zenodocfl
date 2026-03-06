@@ -56,7 +56,7 @@ allowlist in this example. Simply provide the manifest to `gather`:
 
 All items will be output to a data folder.
 
-4. A furhter RO-CRATE manifest must be created using `-list`. The RO-CRATE
+4. A further RO-CRATE manifest must be created using `-list`. The RO-CRATE
 manifest enables download of ALL further media items and anciliary records.
 
 ```bash

@@ -56,7 +56,7 @@ func initFlags() {
 	flag.StringVar(&crate, "crate", "", "collection manifest to convert to RO-CRATE")
 	flag.StringVar(&meta, "meta", "", "metadata for the RO-CRATE")
 	flag.StringVar(&additional, "additional", "", "change name of ancillary directory")
-	flag.BoolVar(&dryrun, "dry-run", false, "peform a dry-run (dont download files)")
+	flag.BoolVar(&dryrun, "dry-run", false, "perform a dry-run (dont download files)")
 	flag.BoolVar(&debug, "debug", false, "debug logging")
 	flag.BoolVar(&vers, "version", false, "return version")
 }
@@ -192,7 +192,7 @@ func handleInput() metaJSON {
 			variable: &metaJSON.DatePublished,
 		},
 		{
-			name:     "license for the ro-crate (defailt: https://creativecommons.org/publicdomain/zero/1.0/)",
+			name:     "license for the ro-crate (default: https://creativecommons.org/publicdomain/zero/1.0/)",
 			variable: &metaJSON.License,
 		},
 		{
