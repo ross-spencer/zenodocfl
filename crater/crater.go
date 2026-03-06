@@ -78,13 +78,13 @@ func createCrateDir(dirName string) {
 }
 
 // getMeta returns a metadata object from a user input.
-func getMeta(meta string) userData {
+func getMeta(meta string) metaJSON {
 	data, err := os.ReadFile(meta)
 	if err != nil {
 		log.Println("error reading metadata:", err)
 		os.Exit(1)
 	}
-	var metaData userData
+	var metaData metaJSON
 	err = json.Unmarshal(data, &metaData)
 	if err != nil {
 		log.Println("error reading metadata:", err)
@@ -101,7 +101,7 @@ func getMeta(meta string) userData {
 	MediaURLs  []string `json:"media_urls"`     <-- download to media.
 	PosterURLs []string `json:"poster_urls"`    <-- download to poster.
 */
-func makeCrate(manifest string, userData userData, dryrun bool) {
+func makeCrate(manifest string, metaJSON metaJSON, dryrun bool) {
 
 	// read the data.
 	collection := readManifest(manifest)
@@ -109,7 +109,7 @@ func makeCrate(manifest string, userData userData, dryrun bool) {
 	// create global object.
 	crateDir := filepath.Join("output", fmt.Sprintf(
 		"ro-crate-%s-%d",
-		strings.Replace(userData.Name, " ", "-", -1),
+		strings.Replace(metaJSON.Name, " ", "-", -1),
 		timestamp(),
 	),
 	)
@@ -143,9 +143,9 @@ func makeCrate(manifest string, userData userData, dryrun bool) {
 	// summary info.
 	log.Println("rocrate parts:", len(allParts))
 
-	userData.parts = allParts
+	metaJSON.parts = allParts
 
-	rocrateData := makeCrateObj(userData)
+	rocrateData := makeCrateObj(metaJSON)
 
 	data, err := json.MarshalIndent(rocrateData, "", " ")
 	if err != nil {
@@ -164,44 +164,44 @@ type fields struct {
 
 // handleInput takes the user input needed to populate the metadata
 // in the RO-CRATE.
-func handleInput() userData {
+func handleInput() metaJSON {
 
-	var userData userData
+	var metaJSON metaJSON
 
 	const licenseDefault string = "https://creativecommons.org/publicdomain/zero/1.0/"
 
 	fields := []fields{
 		{
 			name:     "identifier for the ro-crate",
-			variable: &userData.Identifier,
+			variable: &metaJSON.Identifier,
 		},
 		{
 			name:     "description for the ro-crate",
-			variable: &userData.Description,
+			variable: &metaJSON.Description,
 		},
 		{
 			name:     "title for the ro-crate",
-			variable: &userData.Name,
+			variable: &metaJSON.Name,
 		},
 		{
 			name:     "record type for the ro-crate",
-			variable: &userData.RecordType,
+			variable: &metaJSON.RecordType,
 		},
 		{
 			name:     "date published",
-			variable: &userData.DatePublished,
+			variable: &metaJSON.DatePublished,
 		},
 		{
 			name:     "license for the ro-crate (defailt: https://creativecommons.org/publicdomain/zero/1.0/)",
-			variable: &userData.License,
+			variable: &metaJSON.License,
 		},
 		{
 			name:     "keywords for the ro-crate (separated by comma: ',')",
-			variable: &userData.Keywords,
+			variable: &metaJSON.Keywords,
 		},
 		{
 			name:     "url for the collection",
-			variable: &userData.Url,
+			variable: &metaJSON.Url,
 		},
 	}
 
@@ -210,11 +210,11 @@ func handleInput() userData {
 		fmt.Scanf("%s", field.variable)
 	}
 
-	if userData.License == "" {
-		userData.License = licenseDefault
+	if metaJSON.License == "" {
+		metaJSON.License = licenseDefault
 	}
 
-	return userData
+	return metaJSON
 }
 
 func main() {
@@ -246,19 +246,19 @@ func main() {
 		return
 	}
 
-	var userData userData
+	var metaJSON metaJSON
 	if meta != "" {
 		// read metadata.
-		userData = getMeta(meta)
+		metaJSON = getMeta(meta)
 	} else {
 		log.Println("reading metadata from stdin:")
-		userData = handleInput()
+		metaJSON = handleInput()
 	}
 
-	log.Println("user metadata:", userData)
+	log.Println("user metadata:", metaJSON)
 
 	if crate != "" {
-		makeCrate(crate, userData, dryrun)
+		makeCrate(crate, metaJSON, dryrun)
 		os.Exit(0)
 	}
 

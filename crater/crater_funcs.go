@@ -110,7 +110,9 @@ const creativeWork string = "CreativeWork"
 const rocrateContext string = "https://w3id.org/ro/crate/1.1/context"
 const rocrateConform string = "https://w3id.org/ro/crate/1.1"
 
-type userData struct {
+// metaJSON is our user-facing metadata summary making it easier to
+// include RO-CRATE metadata.
+type metaJSON struct {
 	Identifier    string `json:"identifier"`
 	Description   string `json:"description"`
 	Name          string `json:"name"`
@@ -126,18 +128,18 @@ type userData struct {
 	parts []string
 }
 
-func (userData userData) String() string {
+func (metaJSON metaJSON) String() string {
 	return fmt.Sprintf("%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n",
-		userData.Identifier,
-		userData.Description,
-		userData.Name,
-		userData.RecordType,
-		userData.DatePublished,
-		userData.License,
-		userData.Keywords,
-		userData.Publisher,
-		userData.PublisherName,
-		userData.Url,
+		metaJSON.Identifier,
+		metaJSON.Description,
+		metaJSON.Name,
+		metaJSON.RecordType,
+		metaJSON.DatePublished,
+		metaJSON.License,
+		metaJSON.Keywords,
+		metaJSON.Publisher,
+		metaJSON.PublisherName,
+		metaJSON.Url,
 	)
 }
 
@@ -151,7 +153,7 @@ func getKeywords(values string) []string {
 }
 
 // makeCrateObj creates a RO-CRATE JSON object.
-func makeCrateObj(userData userData) rocrate {
+func makeCrateObj(metaJSON metaJSON) rocrate {
 
 	const rootID string = "./"
 	const orgType string = "Organization"
@@ -166,23 +168,23 @@ func makeCrateObj(userData userData) rocrate {
 	meta.ConformsTo = idPointer{rocrateConform}
 	obj := files{}
 	obj.ID = rootID
-	obj.Identifier = userData.Identifier
-	obj.Type = userData.RecordType
-	obj.Name = userData.Name
-	obj.Description = userData.Description
-	obj.License = userData.License
-	obj.DatePublished = userData.DatePublished
-	obj.Publisher = idPointer{userData.Publisher}
-	obj.Keywords = getKeywords(userData.Keywords)
-	obj.ContentURL = userData.Url
-	for _, item := range userData.parts {
+	obj.Identifier = metaJSON.Identifier
+	obj.Type = metaJSON.RecordType
+	obj.Name = metaJSON.Name
+	obj.Description = metaJSON.Description
+	obj.License = metaJSON.License
+	obj.DatePublished = metaJSON.DatePublished
+	obj.Publisher = idPointer{metaJSON.Publisher}
+	obj.Keywords = getKeywords(metaJSON.Keywords)
+	obj.ContentURL = metaJSON.Url
+	for _, item := range metaJSON.parts {
 		obj.HasPart = append(obj.HasPart, idPointer{item})
 	}
 	crate.Graph = append(crate.Graph, meta)
 	crate.Graph = append(crate.Graph, obj)
 	pub := org{}
-	pub.Name = userData.PublisherName
-	pub.ID = userData.Publisher
+	pub.Name = metaJSON.PublisherName
+	pub.ID = metaJSON.Publisher
 	pub.Type = orgType
 	crate.Graph = append(crate.Graph, pub)
 	return crate
