@@ -290,7 +290,12 @@ func main() {
 		metaJSON = handleInput()
 	}
 
-	log.Println("user metadata:", metaJSON)
+	fmt.Fprintf(os.Stderr, "---\n\nuser metadata\n=============\n\n%s---------\n\n", metaJSON)
+	var confirm string
+	if dryrun {
+		fmt.Println("confirm metadata and press enter to continue (ctrl-c or ctrl-z to exit):")
+		fmt.Scanf("%s", confirm)
+	}
 
 	if crate != "" {
 		makeCrate(crate, metaJSON, dryrun)

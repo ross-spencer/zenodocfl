@@ -121,7 +121,7 @@ type publisher struct {
 }
 
 func (publisher publisher) String() string {
-	return fmt.Sprintf("  %s\n  %s", publisher.PublisherIdentifier, publisher.PublisherName)
+	return fmt.Sprintf("\n  uri: %s\n  name: %s\n", publisher.PublisherIdentifier, publisher.PublisherName)
 }
 
 // metaJSON is our user-facing metadata summary making it easier to
@@ -141,7 +141,7 @@ type metaJSON struct {
 }
 
 func (metaJSON metaJSON) String() string {
-	return fmt.Sprintf("%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n",
+	return fmt.Sprintf("prefix: %s\ndescription: %s\nname: %s\ntype: %s\nlicense: %s\nkeywords: %s\npublisher: %s\nurl: %s\n",
 		metaJSON.IDPrefix,
 		metaJSON.Description,
 		metaJSON.Name,
