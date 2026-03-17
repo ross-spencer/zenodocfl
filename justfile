@@ -69,3 +69,11 @@ install-preview:
 # preview ro-crate
 preview-rocrate dir:
  rochtml {{dir}}
+
+# Build a snapshot of gofer
+build-snapshot:
+    goreleaser build --snapshot --single-target --clean -f .goreleaser.yml
+
+# Build a gofer release
+build-release:
+    goreleaser release --skip=publish --clean -f .goreleaser.yml --skip=sign

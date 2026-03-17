@@ -1,0 +1,27 @@
+name: linting
+on: ["push", "pull_request"]
+jobs:
+  ci:
+    name: "run linting"
+    strategy:
+      fail-fast: true
+      matrix:
+        os:  ["ubuntu-latest", "macOS-latest"]
+        go:  ["1.21.x", "1.22.x"]
+    runs-on: ${{ matrix.os }}
+    steps:
+    - name: "checkout"
+      uses: actions/checkout@v4
+    - name: "fetch unshallow"
+      run: git fetch --prune --unshallow
+    - name: Set up Go
+      uses: actions/setup-go@v5
+      with:
+        go-version: ${{ matrix.go }}
+    - name: "fmt"
+      run: if [ "$(go fmt ./... | wc -l)" -gt 0 ]; then echo "go fmt failed, please run again locally"; exit 1; fi
+      if: matrix.os == 'ubuntu-latest'
+    - name: "test datapoint and origin"
+      run: "go test github.com/orcfax/oracle-suite/pkg/datapoint/..."
+    - name: "vet"
+      run: "go vet ./..."
