@@ -19,6 +19,6 @@ jobs:
         uses: goreleaser/goreleaser-action@v5
         with:
           version: latest
-          args: release --clean --skip sign -f cmd/gofer/.goreleaser.yml
+          args: release --clean --skip sign -f .goreleaser.yml
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
