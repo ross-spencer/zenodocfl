@@ -18,10 +18,17 @@ jobs:
       uses: actions/setup-go@v5
       with:
         go-version: ${{ matrix.go }}
+    - name: "output version"
+      run: go version
     - name: "fmt"
       run: if [ "$(go fmt ./... | wc -l)" -gt 0 ]; then echo "go fmt failed, please run again locally"; exit 1; fi
-      if: matrix.os == 'ubuntu-latest'
-    - name: "test datapoint and origin"
-      run: "go test github.com/orcfax/oracle-suite/pkg/datapoint/..."
     - name: "vet"
       run: "go vet ./..."
+    - name: "setup imports"
+      run: "go install golang.org/x/tools/cmd/goimports@latest"
+    - name: "test imports"
+      run: if [ "$(goimports -l . | wc -l)" -gt 0 ]; then echo "goimports failed, please run again locally"; exit 1; fi
+    - name: "setup staticcheck"
+      run: "go install honnef.co/go/tools/cmd/staticcheck@latest"
+    - name: staticcheck
+      run: "staticcheck ./..."
